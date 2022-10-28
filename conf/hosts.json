@@ -1,0 +1,19 @@
+{
+    "hosts": [
+      {
+        "name": "Agent1",
+        "addr": "localhost",
+        "port": "9997"
+      },
+      {
+        "name": "Agent2",
+        "addr": "localhost",
+        "port": "9998"
+      },
+      {
+        "name": "Agent3",
+        "addr": "localhost",
+        "port": "9999"
+      }
+    ]
+  }
