@@ -62,12 +62,14 @@ if __name__ == "__main__":
     optim.add_argument("--dampening", type=float, default=0.0)
     optim.add_argument("--weight_decay", type=float, default=0.0)
     optim.add_argument("--nesterov", default=False, action="store_true")
+
     optim = optim_parsers.add_parser("adam")
     optim.add_argument("--lr", type=float, default=0.002)
     optim.add_argument("--betas", type=float, default=(0.9, 0.999), nargs=2)
     optim.add_argument("--eps", type=float, default=1e-8)
     optim.add_argument("--weight_decay", type=float, default=0.0)
     optim.add_argument("--amsgrad", default=False, action="store_true")
+    
     optim = optim_parsers.add_parser("PdmmISVR")
     optim.add_argument("nodename", type=str)
     optim.add_argument("conf", type=str)
@@ -79,6 +81,7 @@ if __name__ == "__main__":
     optim.add_argument("--async_step", dest="round_step",
                        default=True, action="store_false")
     optim.add_argument("--swap_timeout", type=int, default=100)
+    
     optim = optim_parsers.add_parser("AdmmISVR")
     optim.add_argument("nodename", type=str)
     optim.add_argument("conf", type=str)
@@ -90,6 +93,7 @@ if __name__ == "__main__":
     optim.add_argument("--async_step", dest="round_step",
                        default=True, action="store_false")
     optim.add_argument("--swap_timeout", type=int, default=1000)
+    
     optim = optim_parsers.add_parser("DSgd")
     optim.add_argument("nodename", type=str)
     optim.add_argument("conf", type=str)
@@ -165,7 +169,7 @@ if __name__ == "__main__":
                           drop_rate=args.drop_rate, last_drop_rate=args.last_drop_rate,
                           data_init_seed=args.data_init_seed, model_init_seed=args.model_init_seed,
                           cuda=args.cuda, cuda_device_no=args.cuda_device_no)
-    elif args.optimizer in ["PdmmISVR", "AdmmISVR", "DSgd"]:
+    elif args.optimizer in ["PdmmISVR", "AdmmISVR", "DSGD"]:
         from util.trainer import PdmmTrainer as Trainer
 
         with open(args.conf) as f:
@@ -209,3 +213,7 @@ if __name__ == "__main__":
     gc.collect()
     logging.info("GC: check garbage %s" % (str(gc.garbage)))
     gc.collect()
+
+
+# Usage
+# python main.py ./data ./output sgd

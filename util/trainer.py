@@ -29,12 +29,12 @@ except ImportError:
     TORCH_SUMMARY_STRING = False
 
 
-__all__ = ["ATrainer"]
+__all__ = ["Trainer","PDMMTrainer"]
 
 
 class Trainer(object):
     def __init__(self, outdir: str, seed: int,
-                 datadir: str = "./datas",
+                 datadir: str = "./data",
                  dataset_name: str = "cifar10",
                  model_name: str = "resnet50",
                  group_channels: int = 32,
@@ -57,7 +57,7 @@ class Trainer(object):
 
         if cuda:
             if not torch.cuda.is_available():
-                raise ValueError("CUDA device is'nt available!!!")
+                raise ValueError("CUDA device is not available!!!")
             self.__device__ = "cuda:%d" % (cuda_device_no)
         else:
             self.__device__ = "cpu"
