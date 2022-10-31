@@ -7,7 +7,7 @@ import torch.distributed as dist
 import zmq
 from torch.optim.optimizer import Optimizer
 
-from edge import Edge
+from connection.edge import Edge
 
 
 class ServerHandler(threading.Thread):

@@ -11,7 +11,7 @@ import pandas as pd
 import torch
 import torchvision
 from dataset import CIFAR10
-from model import (resnet50)
+from model import (LogisticsModel, resnet50)
 from sklearn.metrics import accuracy_score
 
 try:
@@ -72,10 +72,10 @@ class Trainer(object):
                                           last_drop_rate=last_drop_rate)
 
         self.model.to(self.device)
-        logging.info("device: %s %d/%d, %s" % (self.device,
-                                               torch.cuda.current_device(),
-                                               torch.cuda.device_count(),
-                                               torch.cuda.get_device_name(torch.cuda.current_device())))
+        #logging.info("device: %s %d/%d, %s" % (self.device,
+        #                                       torch.cuda.current_device(),
+        #                                       torch.cuda.device_count(),
+        #                                       torch.cuda.get_device_name(torch.cuda.current_device())))
 
     @property
     def outdir(self): return self.__outdir__
@@ -149,6 +149,9 @@ class Trainer(object):
                              num_classes=num_classes,
                              norm_layer=torch.nn.GroupNorm,
                              group_channels=group_channels)
+        elif self.model_name == "logistics":
+            model = LogisticsModel(in_features=np.prod(image_shape),
+                                   num_classes=num_classes)
         else:
             raise ValueError("Unknonw model name: %s" % self.model_name)
 
@@ -608,9 +611,9 @@ class PDMMTrainer(Trainer):
                        self.model,
                        device=self.device,
                        **args)
-        elif optimizer == "DSgd":
-            from edgecons import DSgd
-            return DSgd(self.nodename,
+        elif optimizer == "DSGD":
+            from optimizer.dsgd import DSGD
+            return DSGD(self.nodename,
                         round_cnt,
                         self.edges,
                         self.hosts,
@@ -678,7 +681,6 @@ class PDMMTrainer(Trainer):
         node_to_class_idx = [[] for i in range(len(self.hosts))]
         class_to_node_idx = [[] for i in range(num_classes)]
         class_data_weights = []
-        # 共通クラスはノード間のデータ数も同じにする
         for class_idx in common_class_indices:
             for node_idx, node_classes in enumerate(node_to_class_idx):
                 node_classes.append(class_idx)
@@ -722,14 +724,13 @@ class PDMMTrainer(Trainer):
         for class_idx, (node_idxs, node_weights, class_datas) in enumerate(zip(class_to_node_idx,
                                                                                class_data_weights,
                                                                                class_data_idxs)):
-            # 各ノードごとのデータ数を計算
             ndata_of_nodes = (node_weights * len(class_datas)).astype(np.int)
             offsets = []
             offset = 0
             for n in ndata_of_nodes:
                 offset += n
                 offsets.append(offset)
-            offsets[-1] = len(class_datas)  # 端数は末尾に押し込む
+            offsets[-1] = len(class_datas)  
             offset = 0
             for node_idx, end_offset in zip(node_idxs, offsets):
                 node_data_indices[node_idx].append(
@@ -746,7 +747,7 @@ class PDMMTrainer(Trainer):
             logging.info("train data node%d: %s" % (node_idx,
                                                     ",".join(["%d:%d" % (i, n) for i, n in zip(classes, counts)])))
         node_indices = node_data_indices[self.nodeindex]
-        datasets = super(PdmmTrainer, self).load_datas(indices=node_indices,
+        datasets = super(PDMMTrainer, self).load_datas(indices=node_indices,
                                                        train_data_length=train_data_length)
         return datasets
 
@@ -777,7 +778,6 @@ class PDMMTrainer(Trainer):
         node_to_class_idx = [[] for i in range(len(self.hosts))]
         class_to_node_idx = [[] for i in range(num_classes)]
         # class_data_weights = []
-        # 共通クラスはノード間のデータ数も同じにする
         for class_idx in common_class_indices:
             for node_idx, node_classes in enumerate(node_to_class_idx):
                 node_classes.append(class_idx)
@@ -865,7 +865,6 @@ class PDMMTrainer(Trainer):
         node_to_class_idx = [[] for i in range(len(self.hosts))]
         class_to_node_idx = [[] for i in range(num_classes)]
         # class_data_weights = []
-        # 共通クラスはノード間のデータ数も同じにする
         for class_idx in common_class_indices:
             for node_idx, node_classes in enumerate(node_to_class_idx):
                 node_classes.append(class_idx)
@@ -900,7 +899,6 @@ class PDMMTrainer(Trainer):
         node_data_indices = [[] for _ in range(len(self.hosts))]
         for node_idxs, class_datas in zip(class_to_node_idx,
                                           class_data_idxs):
-            # 各ノードごとのデータ数を計算
             splited = np.array_split(class_datas, len(node_idxs))
             for node_idx, n in zip(node_idxs, splited):
                 node_data_indices[node_idx].append(n)

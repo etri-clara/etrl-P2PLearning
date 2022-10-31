@@ -1,0 +1,28 @@
+{
+  "nodes": {
+    "node0": {
+      "device": "cpu",
+      "round": 10,
+      "edges": {
+        "node2": 0,
+        "node1": 4
+      }
+    },
+    "node1": {
+      "device": "cpu",
+      "round": 10,
+      "edges": {
+        "node0": 1,
+        "node2": 5
+      }
+    },
+    "node2": {
+      "device": "cpu",
+      "round": 10,
+      "edges": {
+        "node1": 2,
+        "node0": 6
+      }
+    }
+  }
+}

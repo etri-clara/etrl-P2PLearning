@@ -2,7 +2,7 @@ import logging
 
 import torch
 
-from ..connection.contract import Contract
+from connection.contract import Contract
 
 __all__ = ["DSGD"]
 

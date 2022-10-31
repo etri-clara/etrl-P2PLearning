@@ -4,7 +4,7 @@ import threading
 import torch
 import torch.nn as nn
 from .gateway import Gateway
-from node import Node
+from connection.node import Node
 
 
 class Contract(Gateway):

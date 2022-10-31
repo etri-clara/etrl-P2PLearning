@@ -94,7 +94,7 @@ if __name__ == "__main__":
                        default=True, action="store_false")
     optim.add_argument("--swap_timeout", type=int, default=1000)
     
-    optim = optim_parsers.add_parser("DSgd")
+    optim = optim_parsers.add_parser("DSGD")
     optim.add_argument("nodename", type=str)
     optim.add_argument("conf", type=str)
     optim.add_argument("host", type=str)
@@ -170,7 +170,7 @@ if __name__ == "__main__":
                           data_init_seed=args.data_init_seed, model_init_seed=args.model_init_seed,
                           cuda=args.cuda, cuda_device_no=args.cuda_device_no)
     elif args.optimizer in ["PdmmISVR", "AdmmISVR", "DSGD"]:
-        from util.trainer import PdmmTrainer as Trainer
+        from util.trainer import PDMMTrainer as Trainer
 
         with open(args.conf) as f:
             conf = json.load(f)
