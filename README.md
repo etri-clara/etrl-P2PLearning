@@ -144,4 +144,13 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 200,
 ```
 
-### P2P(Peer-to-Peer) Training (with ADMM)
+### P2P(Peer-to-Peer) Training (with ADMM SGD)
+
+### P2P(Peer-to-Peer) Training (with PDMM SGD)
+
+### P2P(Peer-to-Peer) Training (with ADMM ISVR)
+
+### P2P(Peer-to-Peer) Training (with PDMM ISVR)
+
+### P2P(Peer-to-Peer) Training (with CADMM)
+
