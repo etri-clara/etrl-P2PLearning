@@ -18,6 +18,7 @@ class Contract(Gateway):
         prm_a = 1
         swap_timeout_zmq = swap_timeout * 1000
         for i, host in enumerate(hosts):
+            logging.info(i,host)
             if host["name"] == name:
                 prm_a = -1
             self._nodes[host["name"]] = Node(name, host["addr"], host["port"], prm_a, i, swap_timeout=swap_timeout_zmq)
@@ -32,6 +33,7 @@ class Contract(Gateway):
             for dim in m_state[state_name].shape:
                 self._prm_num += dim
 
+        logging.info("contract(1)")
         start_wait_cnt = 0
         while start_wait_cnt < start_wait:
             con_failed_cnt = 0
@@ -54,6 +56,7 @@ class Contract(Gateway):
                 start_wait_cnt += 1
             else:
                 break
+        logging.info("contract(2)")
 
     @property
     def round_cnt(self):

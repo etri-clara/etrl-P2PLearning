@@ -5,7 +5,7 @@ import os
 import os.path as path
 import sys
 
-LOGFORMAT = "[%(asctime)s] <%(levelname)s> %(message)s"
+LOGFORMAT = "[%(asctime)s {%(filename)s:%(lineno)d}] <%(levelname)s> %(message)s"
 
 class LogLevel(IntEnum):
     DEBUG = 10
@@ -39,10 +39,10 @@ def config_logger(logformat: str = LOGFORMAT,
 
     if logfile is None:
         logging.basicConfig(level=loglevel, format=logformat,
-                            stream=sys.stderr)  # ログファイル未指定の場合、標準エラーに出力
+                            stream=sys.stderr)  
     else:
         logdir = path.dirname(logfile)
         os.makedirs(logdir, exist_ok=True)
         logging.basicConfig(level=loglevel, format=logformat,
-                            filename=logfile)  # ログファイル未指定の場合、標準エラーに出力
+                            filename=logfile)  
 

@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
     parser.add_argument("--loglevel",
                         type=lambda x: LogLevel.name_of(x),
-                        default=LogLevel.INFO,
+                        default=LogLevel.DEBUG,
                         help="Log level")
     parser.add_argument("--logfile", type=str, default=None,
                         help="Log file path")
@@ -108,6 +108,19 @@ if __name__ == "__main__":
                        default=True, action="store_false")
     optim.add_argument("--swap_timeout", type=int, default=1)
 
+    optim = optim_parsers.add_parser("AdmmSGD")
+    optim.add_argument("nodename", type=str)
+    optim.add_argument("conf", type=str)
+    optim.add_argument("host", type=str)
+    optim.add_argument("--lr", type=float, default=0.002)
+    optim.add_argument("--mu", type=int, default=200)
+    optim.add_argument("--eta", type=float, default=1.0)
+    optim.add_argument("--eta_rate", type=float, default=1.0)
+    optim.add_argument("--async_step", dest="round_step",
+                       default=True, action="store_false")
+    optim.add_argument("--swap_timeout", type=int, default=1)
+
+
     args = parser.parse_args()
 
     config_logger(loglevel=args.loglevel, logfile=args.logfile)
@@ -150,6 +163,8 @@ if __name__ == "__main__":
         optim_args["weight"] = args.weight
         optim_args["round_step"] = args.round_step
         optim_args["swap_timeout"] = args.swap_timeout
+    elif args.optimizer == "AdmmSGD":
+        optim_args["lr"] = args.lr
 
     scheduler_args = []
     scheduler_kwargs = {}
@@ -169,8 +184,9 @@ if __name__ == "__main__":
                           drop_rate=args.drop_rate, last_drop_rate=args.last_drop_rate,
                           data_init_seed=args.data_init_seed, model_init_seed=args.model_init_seed,
                           cuda=args.cuda, cuda_device_no=args.cuda_device_no)
-    elif args.optimizer in ["PdmmISVR", "AdmmISVR", "DSGD"]:
-        from util.trainer import PDMMTrainer as Trainer
+
+    elif args.optimizer in ["PdmmISVR", "AdmmISVR", "DSGD", "AdmmSGD"]:
+        from util.dist_trainer import DistTrainer as Trainer
 
         with open(args.conf) as f:
             conf = json.load(f)
@@ -200,6 +216,7 @@ if __name__ == "__main__":
         trainer.sleep_factor = args.sleep_factor
     else:
         raise ValueError("Unknown optimizer: %s" % (args.optimizer))
+
     trainer.train(args.epochs, args.batch_size,
                   optimizer=args.optimizer, optim_args=optim_args,
                   scheduler_name=args.scheduler, scheduler_args=scheduler_args, scheduler_kwargs=scheduler_kwargs,

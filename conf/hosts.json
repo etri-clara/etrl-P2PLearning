@@ -2,17 +2,17 @@
   "hosts": [
     {
       "name": "node0",
-      "addr": "localhost",
+      "addr": "127.0.0.1",
       "port": "10000"
     },
     {
       "name": "node1",
-      "addr": "localhost",
+      "addr": "127.0.0.1",
       "port": "10001"
     },
     {
       "name": "node2",
-      "addr": "localhost",
+      "addr": "127.0.0.1",
       "port": "10002"
     }
   ]
