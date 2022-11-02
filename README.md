@@ -169,7 +169,27 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 ...
 200
 ```
+
 ### P2P(Peer-to-Peer) Training (with PDMM ISVR)
+```python
+(Node-1) 
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            2.590,       2.459,        2.456,        0.166,       0.114,        0.117
+...
+200,              
+(Node-2)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            2.486,       2.330,        2.330,        0.199,       0.145,        0.145
+...
+200,          
+(Node-3)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            2.446,       2.492,        2.494,        0.217,       0.138,         0.13
+...
+X,           
+...
+200
+```
 
 ### P2P(Peer-to-Peer) Training (with CADMM)
 
