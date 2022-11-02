@@ -1,4 +1,5 @@
-# 협업학습기술(ETRI) 관련연구 
+# 협업학습기술 관련연구 
+### 수행기관: 한국전자통신연구원
 
 ## Summary
 In the distributed setting, we study weight update algorithms(like DSGD, ADMM, and Collaborative Learning). This code leads a brief overview of ways in which we can solve this problem. 
@@ -149,6 +150,25 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 ### P2P(Peer-to-Peer) Training (with PDMM SGD)
 
 ### P2P(Peer-to-Peer) Training (with ADMM ISVR)
+```python
+(Node-1)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            2.512,       2.436,        2.431,        0.180,       0.118,        0.119
+...
+200,            
+(Node-2)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            2.419,       2.319,        2.320,        0.210,       0.157,        0.155
+...
+200,          
+(Node-3)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            2.463,       2.510,        2.511,        0.178,       0.113,        0.115
+...
+100,            
+...
+200,
+```
 
 ### P2P(Peer-to-Peer) Training (with PDMM ISVR)
 
