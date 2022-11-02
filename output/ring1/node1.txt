@@ -633,3 +633,135 @@
 [2022-11-02 15:13:04,407 {dist_trainer.py:821}] <INFO> [ 138/ 200] loss: (train=1.124, val=0.994, test=1.100, l2=9425.500), acc: (train=0.629, val=0.652, test=0.620), diff=0.00000036, proc(train=24.299sec, eval=11.694sec)
 [2022-11-02 15:13:30,157 {dist_trainer.py:770}] <INFO> [ 139/ 200] connecting edge count: 2
 [2022-11-02 15:13:42,934 {dist_trainer.py:821}] <INFO> [ 139/ 200] loss: (train=1.103, val=0.929, test=1.059, l2=9392.879), acc: (train=0.667, val=0.676, test=0.632), diff=0.00000038, proc(train=25.749sec, eval=11.550sec)
+[2022-11-02 15:14:03,724 {dist_trainer.py:770}] <INFO> [ 140/ 200] connecting edge count: 2
+[2022-11-02 15:14:16,512 {dist_trainer.py:821}] <INFO> [ 140/ 200] loss: (train=1.092, val=0.937, test=1.065, l2=9375.916), acc: (train=0.679, val=0.670, test=0.633), diff=0.00000053, proc(train=20.790sec, eval=11.480sec)
+[2022-11-02 15:14:41,632 {dist_trainer.py:770}] <INFO> [ 141/ 200] connecting edge count: 2
+[2022-11-02 15:14:54,703 {dist_trainer.py:821}] <INFO> [ 141/ 200] loss: (train=1.088, val=0.977, test=1.109, l2=9357.997), acc: (train=0.688, val=0.658, test=0.616), diff=0.00000081, proc(train=25.120sec, eval=11.728sec)
+[2022-11-02 15:15:17,010 {dist_trainer.py:770}] <INFO> [ 142/ 200] connecting edge count: 2
+[2022-11-02 15:15:30,063 {dist_trainer.py:821}] <INFO> [ 142/ 200] loss: (train=1.090, val=1.016, test=1.129, l2=9336.671), acc: (train=0.631, val=0.645, test=0.610), diff=0.00000089, proc(train=22.307sec, eval=11.476sec)
+[2022-11-02 15:15:54,260 {dist_trainer.py:770}] <INFO> [ 143/ 200] connecting edge count: 2
+[2022-11-02 15:16:07,349 {dist_trainer.py:821}] <INFO> [ 143/ 200] loss: (train=1.101, val=0.936, test=1.058, l2=9340.296), acc: (train=0.666, val=0.673, test=0.628), diff=0.00000081, proc(train=24.197sec, eval=11.756sec)
+[2022-11-02 15:16:34,080 {dist_trainer.py:770}] <INFO> [ 144/ 200] connecting edge count: 2
+[2022-11-02 15:16:46,679 {dist_trainer.py:821}] <INFO> [ 144/ 200] loss: (train=1.082, val=0.962, test=1.096, l2=9307.103), acc: (train=0.656, val=0.671, test=0.631), diff=0.00000046, proc(train=26.731sec, eval=11.473sec)
+[2022-11-02 15:17:11,020 {dist_trainer.py:770}] <INFO> [ 145/ 200] connecting edge count: 2
+[2022-11-02 15:17:24,634 {dist_trainer.py:821}] <INFO> [ 145/ 200] loss: (train=1.114, val=0.993, test=1.120, l2=9302.282), acc: (train=0.660, val=0.655, test=0.617), diff=0.00000039, proc(train=24.340sec, eval=11.629sec)
+[2022-11-02 15:17:49,004 {dist_trainer.py:770}] <INFO> [ 146/ 200] connecting edge count: 2
+[2022-11-02 15:18:01,902 {dist_trainer.py:821}] <INFO> [ 146/ 200] loss: (train=1.092, val=0.960, test=1.100, l2=9271.911), acc: (train=0.650, val=0.669, test=0.630), diff=0.00000046, proc(train=24.370sec, eval=11.681sec)
+[2022-11-02 15:18:22,897 {dist_trainer.py:770}] <INFO> [ 147/ 200] connecting edge count: 2
+[2022-11-02 15:18:35,583 {dist_trainer.py:821}] <INFO> [ 147/ 200] loss: (train=1.076, val=0.964, test=1.091, l2=9252.496), acc: (train=0.614, val=0.662, test=0.624), diff=0.00000053, proc(train=20.994sec, eval=11.488sec)
+[2022-11-02 15:18:59,798 {dist_trainer.py:770}] <INFO> [ 148/ 200] connecting edge count: 2
+[2022-11-02 15:19:12,754 {dist_trainer.py:821}] <INFO> [ 148/ 200] loss: (train=1.102, val=0.902, test=1.041, l2=9236.633), acc: (train=0.652, val=0.684, test=0.641), diff=0.00000063, proc(train=24.215sec, eval=11.764sec)
+[2022-11-02 15:19:35,714 {dist_trainer.py:770}] <INFO> [ 149/ 200] connecting edge count: 2
+[2022-11-02 15:19:48,538 {dist_trainer.py:821}] <INFO> [ 149/ 200] loss: (train=1.094, val=1.019, test=1.134, l2=9222.758), acc: (train=0.632, val=0.645, test=0.606), diff=0.00000057, proc(train=22.959sec, eval=11.577sec)
+[2022-11-02 15:20:11,780 {dist_trainer.py:770}] <INFO> [ 150/ 200] connecting edge count: 2
+[2022-11-02 15:20:24,835 {dist_trainer.py:821}] <INFO> [ 150/ 200] loss: (train=1.161, val=0.978, test=1.099, l2=9222.575), acc: (train=0.656, val=0.656, test=0.616), diff=0.00000055, proc(train=23.241sec, eval=11.830sec)
+[2022-11-02 15:20:50,458 {dist_trainer.py:770}] <INFO> [ 151/ 200] connecting edge count: 2
+[2022-11-02 15:21:03,326 {dist_trainer.py:821}] <INFO> [ 151/ 200] loss: (train=1.125, val=0.928, test=1.073, l2=9190.701), acc: (train=0.652, val=0.678, test=0.634), diff=0.00000055, proc(train=25.622sec, eval=11.641sec)
+[2022-11-02 15:21:24,817 {dist_trainer.py:770}] <INFO> [ 152/ 200] connecting edge count: 2
+[2022-11-02 15:21:37,880 {dist_trainer.py:821}] <INFO> [ 152/ 200] loss: (train=1.110, val=0.977, test=1.108, l2=9182.225), acc: (train=0.667, val=0.658, test=0.619), diff=0.00000078, proc(train=21.491sec, eval=11.626sec)
+[2022-11-02 15:22:06,074 {dist_trainer.py:770}] <INFO> [ 153/ 200] connecting edge count: 2
+[2022-11-02 15:22:19,300 {dist_trainer.py:821}] <INFO> [ 153/ 200] loss: (train=1.116, val=0.908, test=1.062, l2=9157.376), acc: (train=0.647, val=0.683, test=0.634), diff=0.00000079, proc(train=28.195sec, eval=11.788sec)
+[2022-11-02 15:22:41,193 {dist_trainer.py:770}] <INFO> [ 154/ 200] connecting edge count: 2
+[2022-11-02 15:22:54,283 {dist_trainer.py:821}] <INFO> [ 154/ 200] loss: (train=1.104, val=1.025, test=1.141, l2=9134.680), acc: (train=0.653, val=0.640, test=0.602), diff=0.00000068, proc(train=21.892sec, eval=11.510sec)
+[2022-11-02 15:23:18,538 {dist_trainer.py:770}] <INFO> [ 155/ 200] connecting edge count: 2
+[2022-11-02 15:23:32,198 {dist_trainer.py:821}] <INFO> [ 155/ 200] loss: (train=1.150, val=0.925, test=1.086, l2=9131.833), acc: (train=0.647, val=0.680, test=0.634), diff=0.00000065, proc(train=24.255sec, eval=11.810sec)
+[2022-11-02 15:23:56,433 {dist_trainer.py:770}] <INFO> [ 156/ 200] connecting edge count: 2
+[2022-11-02 15:24:09,117 {dist_trainer.py:821}] <INFO> [ 156/ 200] loss: (train=1.045, val=1.022, test=1.161, l2=9101.062), acc: (train=0.640, val=0.648, test=0.606), diff=0.00000054, proc(train=24.234sec, eval=11.495sec)
+[2022-11-02 15:24:33,176 {dist_trainer.py:770}] <INFO> [ 157/ 200] connecting edge count: 2
+[2022-11-02 15:24:46,020 {dist_trainer.py:821}] <INFO> [ 157/ 200] loss: (train=1.145, val=0.965, test=1.088, l2=9096.234), acc: (train=0.645, val=0.663, test=0.617), diff=0.00000041, proc(train=24.058sec, eval=11.635sec)
+[2022-11-02 15:25:09,891 {dist_trainer.py:770}] <INFO> [ 158/ 200] connecting edge count: 2
+[2022-11-02 15:25:23,040 {dist_trainer.py:821}] <INFO> [ 158/ 200] loss: (train=1.076, val=0.874, test=1.034, l2=9065.012), acc: (train=0.695, val=0.694, test=0.645), diff=0.00000054, proc(train=23.870sec, eval=11.757sec)
+[2022-11-02 15:25:44,998 {dist_trainer.py:770}] <INFO> [ 159/ 200] connecting edge count: 2
+[2022-11-02 15:25:57,766 {dist_trainer.py:821}] <INFO> [ 159/ 200] loss: (train=1.068, val=0.991, test=1.108, l2=9051.062), acc: (train=0.652, val=0.652, test=0.612), diff=0.00000069, proc(train=21.957sec, eval=11.586sec)
+[2022-11-02 15:26:22,446 {dist_trainer.py:770}] <INFO> [ 160/ 200] connecting edge count: 2
+[2022-11-02 15:26:35,527 {dist_trainer.py:821}] <INFO> [ 160/ 200] loss: (train=1.053, val=0.892, test=1.054, l2=9036.759), acc: (train=0.687, val=0.691, test=0.644), diff=0.00000069, proc(train=24.679sec, eval=11.754sec)
+[2022-11-02 15:26:57,963 {dist_trainer.py:770}] <INFO> [ 161/ 200] connecting edge count: 2
+[2022-11-02 15:27:11,143 {dist_trainer.py:821}] <INFO> [ 161/ 200] loss: (train=1.036, val=1.036, test=1.188, l2=9020.442), acc: (train=0.640, val=0.647, test=0.605), diff=0.00000074, proc(train=22.435sec, eval=11.556sec)
+[2022-11-02 15:27:35,100 {dist_trainer.py:770}] <INFO> [ 162/ 200] connecting edge count: 2
+[2022-11-02 15:27:48,638 {dist_trainer.py:821}] <INFO> [ 162/ 200] loss: (train=1.078, val=0.993, test=1.132, l2=9019.688), acc: (train=0.663, val=0.652, test=0.612), diff=0.00000077, proc(train=23.957sec, eval=11.736sec)
+[2022-11-02 15:28:14,824 {dist_trainer.py:770}] <INFO> [ 163/ 200] connecting edge count: 2
+[2022-11-02 15:28:27,549 {dist_trainer.py:821}] <INFO> [ 163/ 200] loss: (train=1.034, val=0.839, test=0.999, l2=8992.449), acc: (train=0.692, val=0.709, test=0.657), diff=0.00000044, proc(train=26.186sec, eval=11.475sec)
+[2022-11-02 15:28:51,123 {dist_trainer.py:770}] <INFO> [ 164/ 200] connecting edge count: 2
+[2022-11-02 15:29:04,777 {dist_trainer.py:821}] <INFO> [ 164/ 200] loss: (train=1.050, val=0.971, test=1.111, l2=8988.995), acc: (train=0.662, val=0.661, test=0.613), diff=0.00000039, proc(train=23.573sec, eval=11.603sec)
+[2022-11-02 15:29:30,553 {dist_trainer.py:770}] <INFO> [ 165/ 200] connecting edge count: 2
+[2022-11-02 15:29:43,569 {dist_trainer.py:821}] <INFO> [ 165/ 200] loss: (train=1.062, val=0.838, test=1.013, l2=8958.999), acc: (train=0.688, val=0.710, test=0.651), diff=0.00000055, proc(train=25.776sec, eval=11.612sec)
+[2022-11-02 15:30:04,631 {dist_trainer.py:770}] <INFO> [ 166/ 200] connecting edge count: 2
+[2022-11-02 15:30:17,635 {dist_trainer.py:821}] <INFO> [ 166/ 200] loss: (train=1.016, val=0.937, test=1.087, l2=8939.865), acc: (train=0.697, val=0.673, test=0.627), diff=0.00000052, proc(train=21.061sec, eval=11.420sec)
+[2022-11-02 15:30:43,230 {dist_trainer.py:770}] <INFO> [ 167/ 200] connecting edge count: 2
+[2022-11-02 15:30:56,137 {dist_trainer.py:821}] <INFO> [ 167/ 200] loss: (train=1.038, val=0.929, test=1.102, l2=8925.851), acc: (train=0.658, val=0.681, test=0.631), diff=0.00000065, proc(train=25.595sec, eval=11.750sec)
+[2022-11-02 15:31:20,774 {dist_trainer.py:770}] <INFO> [ 168/ 200] connecting edge count: 2
+[2022-11-02 15:31:33,826 {dist_trainer.py:821}] <INFO> [ 168/ 200] loss: (train=1.053, val=0.875, test=1.024, l2=8913.831), acc: (train=0.702, val=0.697, test=0.645), diff=0.00000062, proc(train=24.636sec, eval=11.386sec)
+[2022-11-02 15:31:58,809 {dist_trainer.py:770}] <INFO> [ 169/ 200] connecting edge count: 2
+[2022-11-02 15:32:12,591 {dist_trainer.py:821}] <INFO> [ 169/ 200] loss: (train=1.068, val=0.897, test=1.052, l2=8913.759), acc: (train=0.673, val=0.686, test=0.637), diff=0.00000044, proc(train=24.983sec, eval=11.737sec)
+[2022-11-02 15:32:37,666 {dist_trainer.py:770}] <INFO> [ 170/ 200] connecting edge count: 2
+[2022-11-02 15:32:51,284 {dist_trainer.py:821}] <INFO> [ 170/ 200] loss: (train=1.020, val=0.837, test=1.015, l2=8880.643), acc: (train=0.685, val=0.710, test=0.657), diff=0.00000041, proc(train=25.075sec, eval=11.483sec)
+[2022-11-02 15:33:15,367 {dist_trainer.py:770}] <INFO> [ 171/ 200] connecting edge count: 2
+[2022-11-02 15:33:28,152 {dist_trainer.py:821}] <INFO> [ 171/ 200] loss: (train=1.082, val=0.959, test=1.110, l2=8875.187), acc: (train=0.668, val=0.669, test=0.620), diff=0.00000051, proc(train=24.082sec, eval=11.645sec)
+[2022-11-02 15:33:54,660 {dist_trainer.py:770}] <INFO> [ 172/ 200] connecting edge count: 2
+[2022-11-02 15:34:07,444 {dist_trainer.py:821}] <INFO> [ 172/ 200] loss: (train=1.025, val=0.854, test=1.009, l2=8844.187), acc: (train=0.691, val=0.704, test=0.645), diff=0.00000052, proc(train=26.508sec, eval=11.607sec)
+[2022-11-02 15:34:28,993 {dist_trainer.py:770}] <INFO> [ 173/ 200] connecting edge count: 2
+[2022-11-02 15:34:41,745 {dist_trainer.py:821}] <INFO> [ 173/ 200] loss: (train=1.021, val=0.941, test=1.094, l2=8829.620), acc: (train=0.679, val=0.665, test=0.623), diff=0.00000066, proc(train=21.548sec, eval=11.470sec)
+[2022-11-02 15:35:07,662 {dist_trainer.py:770}] <INFO> [ 174/ 200] connecting edge count: 2
+[2022-11-02 15:35:20,950 {dist_trainer.py:821}] <INFO> [ 174/ 200] loss: (train=1.019, val=0.924, test=1.082, l2=8810.444), acc: (train=0.685, val=0.674, test=0.626), diff=0.00000062, proc(train=25.917sec, eval=11.895sec)
+[2022-11-02 15:35:44,166 {dist_trainer.py:770}] <INFO> [ 175/ 200] connecting edge count: 2
+[2022-11-02 15:35:57,011 {dist_trainer.py:821}] <INFO> [ 175/ 200] loss: (train=1.016, val=1.103, test=1.219, l2=8783.166), acc: (train=0.626, val=0.603, test=0.570), diff=0.00000139, proc(train=23.216sec, eval=11.455sec)
+[2022-11-02 15:36:20,103 {dist_trainer.py:770}] <INFO> [ 176/ 200] connecting edge count: 2
+[2022-11-02 15:36:33,231 {dist_trainer.py:821}] <INFO> [ 176/ 200] loss: (train=1.088, val=0.877, test=1.046, l2=8790.239), acc: (train=0.672, val=0.695, test=0.639), diff=0.00000081, proc(train=23.092sec, eval=11.787sec)
+[2022-11-02 15:37:03,392 {dist_trainer.py:770}] <INFO> [ 177/ 200] connecting edge count: 2
+[2022-11-02 15:37:16,427 {dist_trainer.py:821}] <INFO> [ 177/ 200] loss: (train=0.978, val=0.942, test=1.076, l2=8754.567), acc: (train=0.724, val=0.669, test=0.622), diff=0.00000080, proc(train=30.161sec, eval=11.600sec)
+[2022-11-02 15:37:47,894 {dist_trainer.py:770}] <INFO> [ 178/ 200] connecting edge count: 2
+[2022-11-02 15:38:01,830 {dist_trainer.py:821}] <INFO> [ 178/ 200] loss: (train=1.021, val=1.037, test=1.177, l2=8748.693), acc: (train=0.663, val=0.634, test=0.592), diff=0.00000051, proc(train=31.466sec, eval=11.849sec)
+[2022-11-02 15:38:30,588 {dist_trainer.py:770}] <INFO> [ 179/ 200] connecting edge count: 2
+[2022-11-02 15:38:43,689 {dist_trainer.py:821}] <INFO> [ 179/ 200] loss: (train=1.005, val=0.854, test=1.033, l2=8718.542), acc: (train=0.683, val=0.706, test=0.651), diff=0.00000054, proc(train=28.757sec, eval=11.589sec)
+[2022-11-02 15:39:11,309 {dist_trainer.py:770}] <INFO> [ 180/ 200] connecting edge count: 2
+[2022-11-02 15:39:24,109 {dist_trainer.py:821}] <INFO> [ 180/ 200] loss: (train=1.030, val=0.955, test=1.112, l2=8707.916), acc: (train=0.664, val=0.665, test=0.617), diff=0.00000106, proc(train=27.620sec, eval=11.541sec)
+[2022-11-02 15:39:52,745 {dist_trainer.py:770}] <INFO> [ 181/ 200] connecting edge count: 2
+[2022-11-02 15:40:06,578 {dist_trainer.py:821}] <INFO> [ 181/ 200] loss: (train=0.997, val=0.800, test=0.989, l2=8686.726), acc: (train=0.720, val=0.721, test=0.658), diff=0.00000054, proc(train=28.636sec, eval=11.911sec)
+[2022-11-02 15:40:34,024 {dist_trainer.py:770}] <INFO> [ 182/ 200] connecting edge count: 2
+[2022-11-02 15:40:48,110 {dist_trainer.py:821}] <INFO> [ 182/ 200] loss: (train=1.037, val=0.929, test=1.082, l2=8672.023), acc: (train=0.697, val=0.674, test=0.627), diff=0.00000088, proc(train=27.446sec, eval=11.551sec)
+[2022-11-02 15:41:16,282 {dist_trainer.py:770}] <INFO> [ 183/ 200] connecting edge count: 2
+[2022-11-02 15:41:29,894 {dist_trainer.py:821}] <INFO> [ 183/ 200] loss: (train=1.018, val=0.860, test=1.056, l2=8666.788), acc: (train=0.709, val=0.706, test=0.645), diff=0.00000054, proc(train=28.171sec, eval=11.902sec)
+[2022-11-02 15:41:59,042 {dist_trainer.py:770}] <INFO> [ 184/ 200] connecting edge count: 2
+[2022-11-02 15:42:12,168 {dist_trainer.py:821}] <INFO> [ 184/ 200] loss: (train=0.975, val=0.952, test=1.105, l2=8642.638), acc: (train=0.697, val=0.664, test=0.614), diff=0.00000095, proc(train=29.148sec, eval=11.623sec)
+[2022-11-02 15:42:42,584 {dist_trainer.py:770}] <INFO> [ 185/ 200] connecting edge count: 2
+[2022-11-02 15:42:56,124 {dist_trainer.py:821}] <INFO> [ 185/ 200] loss: (train=0.988, val=0.891, test=1.066, l2=8639.281), acc: (train=0.711, val=0.688, test=0.637), diff=0.00000056, proc(train=30.416sec, eval=11.912sec)
+[2022-11-02 15:43:23,551 {dist_trainer.py:770}] <INFO> [ 186/ 200] connecting edge count: 2
+[2022-11-02 15:43:37,264 {dist_trainer.py:821}] <INFO> [ 186/ 200] loss: (train=0.944, val=0.861, test=1.038, l2=8610.377), acc: (train=0.708, val=0.697, test=0.643), diff=0.00000062, proc(train=27.426sec, eval=11.667sec)
+[2022-11-02 15:44:04,689 {dist_trainer.py:770}] <INFO> [ 187/ 200] connecting edge count: 2
+[2022-11-02 15:44:19,471 {dist_trainer.py:821}] <INFO> [ 187/ 200] loss: (train=1.026, val=0.838, test=1.010, l2=8600.777), acc: (train=0.686, val=0.709, test=0.654), diff=0.00000080, proc(train=27.424sec, eval=11.770sec)
+[2022-11-02 15:44:47,296 {dist_trainer.py:770}] <INFO> [ 188/ 200] connecting edge count: 2
+[2022-11-02 15:45:00,607 {dist_trainer.py:821}] <INFO> [ 188/ 200] loss: (train=0.967, val=0.796, test=1.007, l2=8582.185), acc: (train=0.726, val=0.723, test=0.656), diff=0.00000048, proc(train=27.825sec, eval=12.087sec)
+[2022-11-02 15:45:27,605 {dist_trainer.py:770}] <INFO> [ 189/ 200] connecting edge count: 2
+[2022-11-02 15:45:42,558 {dist_trainer.py:821}] <INFO> [ 189/ 200] loss: (train=1.018, val=0.946, test=1.110, l2=8565.759), acc: (train=0.693, val=0.671, test=0.623), diff=0.00000095, proc(train=26.997sec, eval=11.725sec)
+[2022-11-02 15:46:11,980 {dist_trainer.py:770}] <INFO> [ 190/ 200] connecting edge count: 2
+[2022-11-02 15:46:25,796 {dist_trainer.py:821}] <INFO> [ 190/ 200] loss: (train=1.031, val=1.152, test=1.338, l2=8555.843), acc: (train=0.625, val=0.628, test=0.582), diff=0.00000082, proc(train=29.421sec, eval=11.864sec)
+[2022-11-02 15:46:54,508 {dist_trainer.py:770}] <INFO> [ 191/ 200] connecting edge count: 2
+[2022-11-02 15:47:07,969 {dist_trainer.py:821}] <INFO> [ 191/ 200] loss: (train=0.965, val=0.763, test=0.972, l2=8535.234), acc: (train=0.729, val=0.738, test=0.670), diff=0.00000061, proc(train=28.712sec, eval=11.711sec)
+[2022-11-02 15:47:37,090 {dist_trainer.py:770}] <INFO> [ 192/ 200] connecting edge count: 2
+[2022-11-02 15:47:51,107 {dist_trainer.py:821}] <INFO> [ 192/ 200] loss: (train=1.001, val=0.795, test=0.983, l2=8528.555), acc: (train=0.695, val=0.725, test=0.662), diff=0.00000082, proc(train=29.120sec, eval=11.874sec)
+[2022-11-02 15:48:17,000 {dist_trainer.py:770}] <INFO> [ 193/ 200] connecting edge count: 2
+[2022-11-02 15:48:31,597 {dist_trainer.py:821}] <INFO> [ 193/ 200] loss: (train=0.958, val=0.814, test=1.020, l2=8503.786), acc: (train=0.713, val=0.718, test=0.650), diff=0.00000071, proc(train=25.893sec, eval=11.807sec)
+[2022-11-02 15:48:57,420 {dist_trainer.py:770}] <INFO> [ 194/ 200] connecting edge count: 2
+[2022-11-02 15:49:10,703 {dist_trainer.py:821}] <INFO> [ 194/ 200] loss: (train=0.984, val=0.907, test=1.096, l2=8492.579), acc: (train=0.698, val=0.681, test=0.623), diff=0.00000063, proc(train=25.823sec, eval=11.637sec)
+[2022-11-02 15:49:39,188 {dist_trainer.py:770}] <INFO> [ 195/ 200] connecting edge count: 2
+[2022-11-02 15:49:54,074 {dist_trainer.py:821}] <INFO> [ 195/ 200] loss: (train=0.972, val=0.817, test=1.020, l2=8476.819), acc: (train=0.718, val=0.715, test=0.654), diff=0.00000052, proc(train=28.484sec, eval=12.003sec)
+[2022-11-02 15:50:18,153 {dist_trainer.py:770}] <INFO> [ 196/ 200] connecting edge count: 2
+[2022-11-02 15:50:31,702 {dist_trainer.py:821}] <INFO> [ 196/ 200] loss: (train=0.939, val=0.829, test=1.038, l2=8460.503), acc: (train=0.694, val=0.716, test=0.653), diff=0.00000062, proc(train=24.079sec, eval=11.705sec)
+[2022-11-02 15:51:00,775 {dist_trainer.py:770}] <INFO> [ 197/ 200] connecting edge count: 2
+[2022-11-02 15:51:14,839 {dist_trainer.py:821}] <INFO> [ 197/ 200] loss: (train=1.004, val=0.824, test=1.028, l2=8455.297), acc: (train=0.720, val=0.716, test=0.655), diff=0.00000074, proc(train=29.073sec, eval=11.917sec)
+[2022-11-02 15:51:45,786 {dist_trainer.py:770}] <INFO> [ 198/ 200] connecting edge count: 2
+[2022-11-02 15:51:59,082 {dist_trainer.py:821}] <INFO> [ 198/ 200] loss: (train=0.923, val=0.843, test=1.051, l2=8431.363), acc: (train=0.684, val=0.707, test=0.645), diff=0.00000089, proc(train=30.946sec, eval=11.764sec)
+[2022-11-02 15:52:24,473 {dist_trainer.py:770}] <INFO> [ 199/ 200] connecting edge count: 2
+[2022-11-02 15:52:46,522 {dist_trainer.py:821}] <INFO> [ 199/ 200] loss: (train=1.010, val=1.003, test=1.149, l2=8419.646), acc: (train=0.687, val=0.648, test=0.610), diff=0.00000155, proc(train=25.390sec, eval=11.372sec)
+[2022-11-02 15:52:48,357 {contract.py:84}] <INFO>  => node0 : edge disconnect.
+[2022-11-02 15:53:14,427 {dist_trainer.py:770}] <INFO> [ 200/ 200] connecting edge count: 1
+[2022-11-02 15:53:27,112 {dist_trainer.py:821}] <INFO> [ 200/ 200] loss: (train=1.655, val=1.246, test=1.300, l2=3699.625), acc: (train=0.585, val=0.580, test=0.562), diff=0.00000532, proc(train=27.905sec, eval=11.371sec)
+[2022-11-02 15:53:27,112 {dist_trainer.py:836}] <INFO> [ 200/ 200] found edge disconnection: 2 -> 1. finished train.
+[2022-11-02 15:53:40,031 {dist_trainer.py:899}] <INFO> [EVAL] loss: (train=1.254, val=1.246, test=1.300, l2=3698.138), acc: (train=0.580, val=0.580, test=0.562), proc=12.918sec
+[2022-11-02 15:53:40,136 {dist_trainer.py:380}] <INFO> GC: check garbage []
+[2022-11-02 15:53:40,436 {main.py:231}] <INFO> GC: check garbage []
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified

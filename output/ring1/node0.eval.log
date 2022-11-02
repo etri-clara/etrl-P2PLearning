@@ -1,0 +1,2 @@
+epoch,train_loss,train_l2_loss,train_excange_proc_loss,val_loss,val_l2_loss,val_excange_proc_loss,test_loss,test_l2_loss,test_excange_proc_loss,train_acc,val_acc,test_acc,proc
+0,1.2543943107128144,3698.138427734375,0.0,1.2460549957752227,3698.138427734375,0.0,1.3004513680934906,3698.138427734375,0.0,0.5802,0.57982,0.5618,12.91825
