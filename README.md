@@ -165,7 +165,7 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
 1,            2.463,       2.510,        2.511,        0.178,       0.113,        0.115
 ...
-85,           1.776,       1.225,        1.278,        0.641,       0.562,        <b>0.547</b>
+85,           1.776,       1.225,        1.278,        0.641,       0.562,        ```<b>0.547</b>```python
 ...
 200
 ```
