@@ -176,17 +176,17 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
 1,            2.590,       2.459,        2.456,        0.166,       0.114,        0.117
 ...
-200,              
+200,          1.431,       4.144,        4.163,        0.257,       0.201,      [ 0.198 ]        
 (Node-2)
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
 1,            2.486,       2.330,        2.330,        0.199,       0.145,        0.145
 ...
-200,          
+200,          0.865,       0.805,        1.026,        0.715,       0.722,      [ 0.661 ]    
 (Node-3)
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
 1,            2.446,       2.492,        2.494,        0.217,       0.138,         0.13
 ...
-X,           
+86,           1.110,       1.457,        1.547,        0.680,       0.539,      [ 0.518 ]
 ...
 200
 ```
