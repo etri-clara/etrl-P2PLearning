@@ -4,9 +4,12 @@
 ## Summary
 In the distributed setting, we study weight update algorithms(like DSGD, ADMM, and Collaborative Learning). This code leads a brief overview of ways in which we can solve this problem. 
 
+![plot](./data/readme_figure.png)
+
+
 ## Install
 ```python
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 ## Quickstart
