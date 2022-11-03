@@ -192,6 +192,7 @@ if __name__ == "__main__":
         optim_args["mu"] = args.mu
         optim_args["eta"] = args.eta
         optim_args["rho"] = args.rho
+        optim_args["drs"] = True
         optim_args["round_step"] = args.round_step
         optim_args["swap_timeout"] = args.swap_timeout
     elif args.optimizer == "PdmmSGD":    # is_state=True, is_dual=True, is_avg=False
@@ -199,6 +200,7 @@ if __name__ == "__main__":
         optim_args["mu"] = args.mu
         optim_args["eta"] = args.eta
         optim_args["rho"] = args.rho
+        optim_args["drs"] = False
         optim_args["round_step"] = args.round_step
         optim_args["swap_timeout"] = args.swap_timeout
     elif args.optimizer == "PdmmISVR":    #  is_drs= False => is_state=True, is_dual=True, is_avg=False, is_c_prm=False
