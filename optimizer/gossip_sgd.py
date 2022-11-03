@@ -29,8 +29,9 @@ class GossipSGD(Contract):
             with torch.enable_grad():
                 loss = closure()
 
+        ###(yongju 11/03/2022)  What is the difference between D-SGD and Gossip SGD ? ###
+
         edges = self.edges()
-        edge_nums = len(edges)
 
         for edge in edges:
             for group in self.param_groups:
@@ -38,8 +39,9 @@ class GossipSGD(Contract):
                     d_p = p.data
                     p.data = torch.div((d_p + edge.prm_state["rcv"][i]), 2)
                     
-                    edge.prm_state["snd"][i] = p.data
-                    
+                    edge.prm_state["snd"][i] = p.data.clone()
 
-        self.swap_params("state")
+        # self.swap_params("state")
         self.round_update()
+
+        return loss

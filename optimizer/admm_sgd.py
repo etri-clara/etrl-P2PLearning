@@ -10,13 +10,16 @@ __all__ = ["AdmmSGD"]
 
 
 class AdmmSGD(Contract):
-    def __init__(self, name, round_cnt, edges, hosts, model, device="cpu",
-                 lr=0.002, mu=200, eta=1.0, rho=0.1, round_step=False, weight=1.0,
+    def __init__(self, name, round_cnt, edges, hosts, model, device="cpu",lr=0.002, 
+                 drs=True, mu=200, eta=1.0, rho=0.1, round_step=False, weight=1.0,
                  swap_timeout=10):
-        mu = 200
-        eta = 1.0
+        lr = 1 / mu
         eta_rate = eta / mu
-        rho = 0.1
+        
+        if drs:
+            is_avg = True
+        else:
+            is_avg = False
 
         self._is_state = True
         if rho == 0:
@@ -24,7 +27,7 @@ class AdmmSGD(Contract):
         
         defaults = dict(lr=lr, mu=mu, eta=eta, rho=rho, initial_lr=lr, eta_rate=eta_rate)
         super(AdmmSGD, self).__init__(name, round_cnt, edges, hosts, model, defaults, device, round_step, weight,
-                                  is_avg = True, swap_timeout=swap_timeout)
+                                  is_avg = is_avg, swap_timeout=swap_timeout)
 
 
         m_state = model.state_dict()
@@ -53,7 +56,7 @@ class AdmmSGD(Contract):
         logging.info(f"Optimizer {type(self)} params: {defaults}")
 
     def __setstate__(self, state):
-        super(PdmmSGD, self).__setstate__(state)
+        super(AdmmSGD, self).__setstate__(state)
         for group in self.param_groups:
             group.setdefault('nesterov', False)
 

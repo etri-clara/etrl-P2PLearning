@@ -218,7 +218,7 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 200
 ```
 
-### P2P(Peer-to-Peer) Training (with ADMM SGD)
+### P2P(Peer-to-Peer) Training (with ADMM SGD) - TBD
 ```python
 (Node-1) 
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
@@ -302,5 +302,5 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 200
 ```
 
-### P2P(Peer-to-Peer) Training (with CADMM)
+### P2P(Peer-to-Peer) Training (with CADMM) - TBD
 

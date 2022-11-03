@@ -10,13 +10,17 @@ __all__ = ["PdmmSGD"]
 
 
 class PdmmSGD(Contract):
-    def __init__(self, name, round_cnt, edges, hosts, model, device="cpu",
-                 lr=0.002, mu=200, eta=1.0, rho=0.1, round_step=False, weight=1.0,
+    def __init__(self, name, round_cnt, edges, hosts, model, device="cpu",lr=0.002, 
+                 drs=False, mu=200, eta=1.0, rho=0.1, round_step=False, weight=1.0,
                  swap_timeout=10):
-        mu = 200
-        eta = 1.0
+        lr = 1 / mu
         eta_rate = eta / mu
-        rho = 0.1
+        
+        if drs:
+            is_avg = True
+        else:
+            is_avg = False
+            
         self._is_state = True
         if rho == 0:
             self._is_state = False
@@ -109,5 +113,3 @@ class PdmmSGD(Contract):
         if closure is not None:
             loss = closure()
         return loss
-    
- 
