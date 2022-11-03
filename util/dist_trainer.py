@@ -260,15 +260,15 @@ class DistTrainer(object):
                         self.model,
                         device=self.device,
                         **args)
-        # elif optimizer == "GossipSGD":
-        #     from optimizer.gossip_sgd import GossipSGD
-        #     return GossipSGD(self.nodename,
-        #                 round_cnt,
-        #                 self.edges,
-        #                 self.hosts,
-        #                 self.model,
-        #                 device=self.device,
-        #                 **args)
+        elif optimizer == "GossipSGD":
+            from optimizer.gossip_sgd import GossipSGD
+            return GossipSGD(self.nodename,
+                        round_cnt,
+                        self.edges,
+                        self.hosts,
+                        self.model,
+                        device=self.device,
+                        **args)
         elif optimizer == "AdmmSGD":
             from optimizer.admm_sgd import AdmmSGD
             return AdmmSGD(self.nodename,

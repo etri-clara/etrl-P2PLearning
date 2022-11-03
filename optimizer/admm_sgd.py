@@ -11,19 +11,21 @@ __all__ = ["AdmmSGD"]
 
 class AdmmSGD(Contract):
     def __init__(self, name, round_cnt, edges, hosts, model, device="cpu",
-                 lr=0.002, momentum=0, dampening=0, weight_decay=0, nesterov=False, round_step=False, weight=1.0,
+                 lr=0.002, mu=200, eta=1.0, rho=0.1, round_step=False, weight=1.0,
                  swap_timeout=10):
         mu = 200
         eta = 1.0
         eta_rate = eta / mu
         rho = 0.1
+
         self._is_state = True
         if rho == 0:
             self._is_state = False
         
-        defaults = dict(lr=lr, eta=eta, rho=rho, initial_lr=lr, eta_rate=eta_rate)
+        defaults = dict(lr=lr, mu=mu, eta=eta, rho=rho, initial_lr=lr, eta_rate=eta_rate)
         super(AdmmSGD, self).__init__(name, round_cnt, edges, hosts, model, defaults, device, round_step, weight,
-                                   is_dual=False, swap_timeout=swap_timeout)
+                                  is_avg = True, swap_timeout=swap_timeout)
+
 
         m_state = model.state_dict()
         dim_num_ary = []
@@ -47,17 +49,20 @@ class AdmmSGD(Contract):
 
         for group in self.param_groups:
             group["dim_num"] = dim_num_ary
+
         logging.info(f"Optimizer {type(self)} params: {defaults}")
 
     def __setstate__(self, state):
-        super(AdmmSGD, self).__setstate__(state)
+        super(PdmmSGD, self).__setstate__(state)
         for group in self.param_groups:
             group.setdefault('nesterov', False)
 
     @torch.no_grad()
     def step(self, closure=None):
+        loss = None
+
         edges = self.edges()
-        edge_num = len(edges) + 1
+        edge_num = len(edges)
 
         for group in self.param_groups:
             mu = 1 / group["lr"]
@@ -78,7 +83,13 @@ class AdmmSGD(Contract):
                 coefficient = v_grad.clone()
 
                 for edge in edges:
-                    consensus += vs_metric_eta / edge_num * edge.prm_a * edge.dual_avg[i] 
+                    # admm
+                    # consensus += vs_metric_eta / edge_num * edge.prm_a() * edge.dual_avg(i)
+                    # -> consensus += vs_metric_eta / edge_num * edge.prm_a * edge.dual_avg[i]
+                    # pdmm
+                    # consensus += vs_metric_eta / edge_num * edge.prm_a() * edge.rcv_dual()[i]
+                    # -> consensus += vs_metric_eta / edge_num * edge.prm_a * edge.prm_dual["rcv"][i] 
+                    consensus += vs_metric_eta / edge_num * edge.prm_a * edge.dual_avg[i]
                     
                     if self._is_state:
                         proximity += vs_metric_rho / edge_num * edge.prm_state["rcv"][i]
@@ -90,7 +101,13 @@ class AdmmSGD(Contract):
 
                 for edge in edges:
                     edge.prm_state["snd"][i] = p.data
+                    edge.prm_dual["snd"][i] = edge.prm_dual["rcv"][i] - \
+                        2 * edge.prm_a * p.data
                 
 
-        self.swap_params("state")
+        self.swap_params("dual")
         self.round_update()
+
+        if closure is not None:
+            loss = closure()
+        return loss

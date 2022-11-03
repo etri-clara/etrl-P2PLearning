@@ -121,6 +121,25 @@ python main.py ./data ./output/ring3 --epochs 200 --batch_size 100 --l2_lambda 0
 
 ### Single-Node Training (with SGD)
 ```python
+ loss_fn = nn.CrossEntropyLoss() 
+ optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9) 
+ for t in ragne(epochs):
+    for batch, (X,y) in enumerate(dataloader): 
+       pred = model(X) 
+       loss = loss_fn(pred,y) 
+       optimizer.zero_grad() 
+       loss.backward() 
+       optimizer.step() 
+```
+```python
+     # optimizer.step()
+     # W = W - lr * dl/dW 
+     for group in param_groups: 
+        for i, param in enumerate(group['params']): 
+           param.add_(param.grad, alpha=-lr)
+```
+
+```python
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
 1,            2.616,       2.192,        2.191,        0.173,       0.178,        0.175
 ...
@@ -128,6 +147,8 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 ```
 
 ### P2P(Peer-to-Peer) Training (with DSGD)
+> Ex.) <br>
+ 
 ```python
 (Node-1)
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
@@ -148,9 +169,68 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 200,
 ```
 
+### P2P(Peer-to-Peer) Training (with Gossip SGD)
+```python
+(Node-1) 
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            
+...
+199,                 
+(Node-2)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            
+...
+200,             
+(Node-3)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            
+...
+84,           
+...
+200
+```
+
 ### P2P(Peer-to-Peer) Training (with ADMM SGD)
+```python
+(Node-1) 
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            
+...
+199,                 
+(Node-2)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            
+...
+200,             
+(Node-3)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            
+...
+84,           
+...
+200
+```
 
 ### P2P(Peer-to-Peer) Training (with PDMM SGD)
+```python
+(Node-1) 
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            2.315,       2.366,        2.364,        0.169,       0.118,        0.120
+...
+199,          0.992,       0.866,        1.050,        0.673,       0.701,      [ 0.651 ]       
+(Node-2)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            2.311,       2.336,        2.338,        0.147,       0.105,        0.103
+...
+200,          0.886,       0.790,        0.991,        0.715,       0.726,      [ 0.667 ]   
+(Node-3)
+epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
+1,            2.290,       2.493,        2.494,        0.227,       0.144,        0.145 
+...
+84,           0.857,       0.833,        1.026,        0.741,       0.713,      [ 0.655 ]
+...
+200
+```
 
 ### P2P(Peer-to-Peer) Training (with ADMM ISVR)
 ```python

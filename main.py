@@ -70,6 +70,58 @@ if __name__ == "__main__":
     optim.add_argument("--weight_decay", type=float, default=0.0)
     optim.add_argument("--amsgrad", default=False, action="store_true")
     
+    optim = optim_parsers.add_parser("DSGD")
+    optim.add_argument("nodename", type=str)
+    optim.add_argument("conf", type=str)
+    optim.add_argument("host", type=str)
+    optim.add_argument("--lr", type=float, default=0.002)
+    optim.add_argument("--momentum", type=float, default=0.0)
+    optim.add_argument("--dampening", type=float, default=0.0)
+    optim.add_argument("--weight_decay", type=float, default=0.0)
+    optim.add_argument("--nesterov", default=False, action="store_true")
+    optim.add_argument("--weight", type=float, default=1.0)
+    optim.add_argument("--async_step", dest="round_step",
+                       default=True, action="store_false")
+    optim.add_argument("--swap_timeout", type=int, default=1)
+
+    optim = optim_parsers.add_parser("GossipSGD")
+    optim.add_argument("nodename", type=str)
+    optim.add_argument("conf", type=str)
+    optim.add_argument("host", type=str)
+    optim.add_argument("--lr", type=float, default=0.002)
+    optim.add_argument("--momentum", type=float, default=0.0)
+    optim.add_argument("--dampening", type=float, default=0.0)
+    optim.add_argument("--weight_decay", type=float, default=0.0)
+    optim.add_argument("--nesterov", default=False, action="store_true")
+    optim.add_argument("--weight", type=float, default=1.0)
+    optim.add_argument("--async_step", dest="round_step",
+                       default=True, action="store_false")
+    optim.add_argument("--swap_timeout", type=int, default=1)
+
+    optim = optim_parsers.add_parser("AdmmSGD")
+    optim.add_argument("nodename", type=str)
+    optim.add_argument("conf", type=str)
+    optim.add_argument("host", type=str)
+    optim.add_argument("--lr", type=float, default=0.002)
+    optim.add_argument("--mu", type=int, default=200)
+    optim.add_argument("--eta", type=float, default=1.0)
+    optim.add_argument("--rho", type=float, default=0.1)
+    optim.add_argument("--async_step", dest="round_step",
+                       default=True, action="store_false")
+    optim.add_argument("--swap_timeout", type=int, default=1)
+
+    optim = optim_parsers.add_parser("PdmmSGD")
+    optim.add_argument("nodename", type=str)
+    optim.add_argument("conf", type=str)
+    optim.add_argument("host", type=str)
+    optim.add_argument("--lr", type=float, default=0.002)
+    optim.add_argument("--mu", type=int, default=200)
+    optim.add_argument("--eta", type=float, default=1.0)
+    optim.add_argument("--rho", type=float, default=0.1)
+    optim.add_argument("--async_step", dest="round_step",
+                       default=True, action="store_false")
+    optim.add_argument("--swap_timeout", type=int, default=1)
+
     optim = optim_parsers.add_parser("PdmmISVR")
     optim.add_argument("nodename", type=str)
     optim.add_argument("conf", type=str)
@@ -94,37 +146,14 @@ if __name__ == "__main__":
                        default=True, action="store_false")
     optim.add_argument("--swap_timeout", type=int, default=1000)
     
-    optim = optim_parsers.add_parser("DSGD")
-    optim.add_argument("nodename", type=str)
-    optim.add_argument("conf", type=str)
-    optim.add_argument("host", type=str)
-    optim.add_argument("--lr", type=float, default=0.002)
-    optim.add_argument("--momentum", type=float, default=0.0)
-    optim.add_argument("--dampening", type=float, default=0.0)
-    optim.add_argument("--weight_decay", type=float, default=0.0)
-    optim.add_argument("--nesterov", default=False, action="store_true")
-    optim.add_argument("--weight", type=float, default=1.0)
-    optim.add_argument("--async_step", dest="round_step",
-                       default=True, action="store_false")
-    optim.add_argument("--swap_timeout", type=int, default=1)
-
-    optim = optim_parsers.add_parser("AdmmSGD")
-    optim.add_argument("nodename", type=str)
-    optim.add_argument("conf", type=str)
-    optim.add_argument("host", type=str)
-    optim.add_argument("--lr", type=float, default=0.002)
-    optim.add_argument("--mu", type=int, default=200)
-    optim.add_argument("--eta", type=float, default=1.0)
-    optim.add_argument("--eta_rate", type=float, default=1.0)
-    optim.add_argument("--async_step", dest="round_step",
-                       default=True, action="store_false")
-    optim.add_argument("--swap_timeout", type=int, default=1)
-
-
     args = parser.parse_args()
 
     config_logger(loglevel=args.loglevel, logfile=args.logfile)
     logging.info(args)
+
+    # is_dual=False => DSGD
+    # is_dual=True => is_avg=True => AdmmSGD
+    # is_dual=True => is_avg=False => is_state=True => 
 
 
     optim_args = {}
@@ -140,20 +169,6 @@ if __name__ == "__main__":
         optim_args["eps"] = args.eps
         optim_args["weight_decay"] = args.weight_decay
         optim_args["amsgrad"] = args.amsgrad
-    elif args.optimizer == "PdmmISVR":
-        optim_args["lr"] = args.lr
-        optim_args["round_step"] = args.round_step
-        optim_args["use_gcoef"] = args.use_gcoef
-        optim_args["drs"] = False
-        optim_args["piw"] = args.piw
-        optim_args["swap_timeout"] = args.swap_timeout
-    elif args.optimizer == "AdmmISVR":
-        optim_args["lr"] = args.lr
-        optim_args["round_step"] = args.round_step
-        optim_args["use_gcoef"] = args.use_gcoef
-        optim_args["drs"] = True
-        optim_args["piw"] = args.piw
-        optim_args["swap_timeout"] = args.swap_timeout
     elif args.optimizer == "DSGD":
         optim_args["lr"] = args.lr
         optim_args["momentum"] = args.momentum
@@ -163,8 +178,45 @@ if __name__ == "__main__":
         optim_args["weight"] = args.weight
         optim_args["round_step"] = args.round_step
         optim_args["swap_timeout"] = args.swap_timeout
-    elif args.optimizer == "AdmmSGD":
+    elif args.optimizer == "GossipSGD":
         optim_args["lr"] = args.lr
+        optim_args["momentum"] = args.momentum
+        optim_args["weight_decay"] = args.weight_decay
+        optim_args["dampening"] = args.dampening
+        optim_args["nesterov"] = args.nesterov
+        optim_args["weight"] = args.weight
+        optim_args["round_step"] = args.round_step
+        optim_args["swap_timeout"] = args.swap_timeout
+    elif args.optimizer == "AdmmSGD":    # is_state=True, is_dual=True, is_avg=True
+        optim_args["lr"] = args.lr
+        optim_args["mu"] = args.mu
+        optim_args["eta"] = args.eta
+        optim_args["rho"] = args.rho
+        optim_args["round_step"] = args.round_step
+        optim_args["swap_timeout"] = args.swap_timeout
+    elif args.optimizer == "PdmmSGD":    # is_state=True, is_dual=True, is_avg=False
+        optim_args["lr"] = args.lr
+        optim_args["mu"] = args.mu
+        optim_args["eta"] = args.eta
+        optim_args["rho"] = args.rho
+        optim_args["round_step"] = args.round_step
+        optim_args["swap_timeout"] = args.swap_timeout
+    elif args.optimizer == "PdmmISVR":    #  is_drs= False => is_state=True, is_dual=True, is_avg=False, is_c_prm=False
+        optim_args["lr"] = args.lr
+        optim_args["round_step"] = args.round_step
+        optim_args["use_gcoef"] = args.use_gcoef
+        optim_args["drs"] = False
+        optim_args["piw"] = args.piw
+        optim_args["swap_timeout"] = args.swap_timeout
+    elif args.optimizer == "AdmmISVR":   #  is_drs= True => is_state=True, is_dual=True, is_avg=True, is_c_prm=False
+        optim_args["lr"] = args.lr
+        optim_args["round_step"] = args.round_step
+        optim_args["use_gcoef"] = args.use_gcoef
+        optim_args["drs"] = True
+        optim_args["piw"] = args.piw
+        optim_args["swap_timeout"] = args.swap_timeout
+
+
 
     scheduler_args = []
     scheduler_kwargs = {}
@@ -185,7 +237,7 @@ if __name__ == "__main__":
                           data_init_seed=args.data_init_seed, model_init_seed=args.model_init_seed,
                           cuda=args.cuda, cuda_device_no=args.cuda_device_no)
 
-    elif args.optimizer in ["PdmmISVR", "AdmmISVR", "DSGD", "AdmmSGD"]:
+    elif args.optimizer in [ "DSGD", "GossipSGD", "AdmmSGD", "PdmmSGD","PdmmISVR", "AdmmISVR"]:
         from util.dist_trainer import DistTrainer as Trainer
 
         with open(args.conf) as f:
