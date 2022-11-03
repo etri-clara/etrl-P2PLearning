@@ -187,6 +187,17 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 ```
 
 ### P2P(Peer-to-Peer) Training (with Gossip SGD)
+> Ex.) Gossip Stochastic Gradient Descent(Gossip SGD) <br>
+```python
+     for edge in edges:
+         for group in param_groups: 
+            for i, param in enumerate(group['params']): 
+               ############################################
+               param.data = torch.div( (param.data + edge.prm_state["rcv"][i], 2) )
+               edge.prm_state["snd"][i] = param.data
+               ###########################################
+```
+
 ```python
 (Node-1) 
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
