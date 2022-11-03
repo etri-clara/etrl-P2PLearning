@@ -120,6 +120,7 @@ python main.py ./data ./output/ring3 --epochs 200 --batch_size 100 --l2_lambda 0
 ## Distributed Deep Learing: From Single-Node to P2P(Peer-to-Peer)
 
 ### Single-Node Training (with SGD)
+> Ex.) Basic optimizer codes <br>
 ```python
  loss_fn = nn.CrossEntropyLoss() 
  optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9) 
@@ -131,6 +132,7 @@ python main.py ./data ./output/ring3 --epochs 200 --batch_size 100 --l2_lambda 0
        loss.backward() 
        optimizer.step() 
 ```
+> Ex.) Stochastic Gradient Descent(SGD) <br>
 ```python
      # optimizer.step()
      # W = W - lr * dl/dW 
@@ -146,8 +148,23 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 200,          0.311,       0.187,        0.998,        0.942,       0.939,      [ 0.721 ]
 ```
 
-### P2P(Peer-to-Peer) Training (with DSGD)
-> Ex.) <br>
+### P2P(Peer-to-Peer) Training (with D-SGD)
+> Ex.) Decentralized Stochastic Gradient Descent(D-SGD) <br>
+```python
+     for group in param_groups: 
+        for i, param in enumerate(group['params']): 
+           param.add_(param.grad, alpha=-lr)
+
+           ############################################
+           param_sum = torch.zeros_like(param)
+           param_sum += param.data
+           for edge in edges:
+               param_sum += edge.prm_state["rcv"][i]
+           param.data = param_sum / edge_num
+           for edge in edges:
+               edge.prm_state["snd"][i] = param.data
+           ###########################################
+```
  
 ```python
 (Node-1)
