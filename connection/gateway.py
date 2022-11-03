@@ -22,8 +22,6 @@ class ServerHandler(threading.Thread):
         self._info = info
         self._swap_timeout = swap_timeout
 
-        logging.info("ServerHandler(1)")
-
         bind_addr = 'tcp://0.0.0.0:' + str(nodes[name].port)
         self._context = zmq.Context()
         self._socket = self._context.socket(zmq.REP)
@@ -31,7 +29,6 @@ class ServerHandler(threading.Thread):
         self._poller = zmq.Poller()
         self._poller.register(self._socket, zmq.POLLIN)
 
-        logging.info("ServerHandler(2)")
 
     def __del__(self):
         self._socket.close()
@@ -77,14 +74,10 @@ class Gateway(Optimizer):
         self._server_th = None
         self._info = {"node": {"training": True, "round": 0, "user": {}}, "func": None}
 
-        logging.info("Gateway(1)")
-
         os.environ['MASTER_ADDR'] = '127.0.0.1'  ##'localhost'
         os.environ['MASTER_PORT'] = '29500'
         dist.init_process_group('gloo', rank=nodes[name].index, world_size=len(nodes))
         is_prm["rcv_buf"] = True
-
-        logging.info("Gateway(2)")
 
         for edge_name, swap_cnt in edges.items():
             if edge_name not in self._edge.keys():
