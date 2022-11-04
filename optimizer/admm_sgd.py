@@ -108,7 +108,7 @@ class AdmmSGD(Contract):
                         2 * edge.prm_a * p.data
                 
 
-        self.swap_params("dual")
+        self.swap_params("state")
         self.round_update()
 
         if closure is not None:

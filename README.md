@@ -193,7 +193,7 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
          for group in param_groups: 
             for i, param in enumerate(group['params']): 
                ############################################
-               param.data = torch.div( (param.data + edge.prm_state["rcv"][i], 2) )
+               param.data = torch.div( (param.data + edge.prm_state["rcv"][i] ), 2 ) 
                edge.prm_state["snd"][i] = param.data
                ###########################################
 ```
@@ -201,19 +201,21 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 ```python
 (Node-1) 
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
-1,            2.745,       2.821,        2.823,        0.164,       0.100,        0.100
+1,            2.574,       2.467,        2.467,        0.192,       0.120,        0.121
 ...
-200,          2.077,       2.005,        2.005,        0.337,       0.272,      [ 0.271 ]             
+198,          1.489,       1.620,        1.637,        0.480,       0.435,      [ 0.433 ]                     
 (Node-2)
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
-1,            2.818,       2.827,        2.827,        0.146,       0.100,        0.100 
+1,            2.643,       2.443,        2.444,        0.153,       0.107,        0.107   
 ...
-200,          1.997,       2.054,        2.057,        0.338,       0.275,      [ 0.275 ]  
+200,          1.423,       1.445,        1.463,        0.536,       0.489,      [ 0.486 ]    
 (Node-3)
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
-1,            2.788,       2.734,        2.735,        0.136,       0.100,        0.100
+1,            2.546,       2.392,        2.392,        0.252,       0.160,        0.154   
 ...
-200           2.017,       2.133,        2.142,        0.348,       0.259,      [ 0.259 ]
+89,           1.438,       1.471,        1.500,        0.534,       0.485,      [ 0.477 ]
+...
+200           
 ```
 
 ### P2P(Peer-to-Peer) Training (with ADMM SGD) - TBD

@@ -42,8 +42,6 @@ class GossipSGD(Contract):
                     
         #             edge.prm_state["snd"][i] = p.data.clone()
 
-        # self.swap_params("state")
-        # self.round_update()
 
         for group in self.param_groups:
             for i, p in enumerate(group['params']):
@@ -54,6 +52,13 @@ class GossipSGD(Contract):
 
                 for edge in edges:
                     p.data = torch.div((d_p + edge.prm_state["rcv"][i]), 2)
+                    
                     edge.prm_state["snd"][i] = p.data
+                    edge.prm_dual["snd"][i] = edge.prm_dual["rcv"][i] - \
+                        2 * edge.prm_a * p.data
+
+                    
+        self.swap_params("state")
+        self.round_update()
 
         return loss

@@ -1,0 +1,541 @@
+[2022-11-04 15:32:11,473 {main.py:152}] <INFO> Namespace(datadir='./data', outdir='./output/ring3', epochs=200, batch_size=100, seed=569, data_init_seed=11, model_init_seed=13, l2_lambda=0.01, model_name='resnet50', dataset_name='cifar10', train_data_length=10000, group_channels=32, drop_rate=0.1, last_drop_rate=0.5, cuda=True, cuda_device_no=3, plot=False, scheduler='StepLR', step_size=410, gamma=0.9, sleep_factor=0.0, loglevel=<LogLevel.INFO: 20>, logfile=None, optimizer='GossipSGD', nodename='node2', conf='./conf/node_list.json', host='./conf/hosts.json', lr=0.002, momentum=0.0, dampening=0.0, weight_decay=0.0, nesterov=False, weight=1.0, round_step=False, swap_timeout=10)
+[2022-11-04 15:32:11,473 {main.py:247}] <INFO> {'nodes': {'node0': {'device': 'cuda', 'round': 10, 'edges': {'node2': 0, 'node1': 4}}, 'node1': {'device': 'cuda', 'round': 10, 'edges': {'node0': 1, 'node2': 5}}, 'node2': {'device': 'cuda', 'round': 10, 'edges': {'node1': 2, 'node0': 6}}}}
+[2022-11-04 15:32:11,602 {dist_trainer.py:186}] <INFO> : <class 'model.resnet.ResNet'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:183}] <INFO> bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 2, channels: 64, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> maxpool: <class 'torch.nn.modules.pooling.MaxPool2d'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> dropout1: <class 'torch.nn.modules.dropout.Dropout2d'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1: <class 'torch.nn.modules.container.Sequential'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.0: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.0.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:183}] <INFO> layer1.0.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 2, channels: 64, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.0.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:183}] <INFO> layer1.0.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 2, channels: 64, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.0.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:183}] <INFO> layer1.0.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.0.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.0.downsample: <class 'torch.nn.modules.container.Sequential'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.0.downsample.0: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:183}] <INFO> layer1.0.downsample.1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.1: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.1.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:183}] <INFO> layer1.1.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 2, channels: 64, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,603 {dist_trainer.py:186}] <INFO> layer1.1.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,603 {dist_trainer.py:183}] <INFO> layer1.1.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 2, channels: 64, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer1.1.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer1.1.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer1.1.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer1.2: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer1.2.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer1.2.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 2, channels: 64, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer1.2.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer1.2.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 2, channels: 64, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer1.2.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer1.2.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer1.2.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer1.3: <class 'torch.nn.modules.dropout.Dropout2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2: <class 'torch.nn.modules.container.Sequential'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.0: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.0.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer2.0.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 4, channels: 128, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.0.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer2.0.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 4, channels: 128, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.0.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer2.0.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.0.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.0.downsample: <class 'torch.nn.modules.container.Sequential'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.0.downsample.0: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer2.0.downsample.1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.1: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.1.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer2.1.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 4, channels: 128, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.1.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,604 {dist_trainer.py:183}] <INFO> layer2.1.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 4, channels: 128, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,604 {dist_trainer.py:186}] <INFO> layer2.1.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer2.1.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.1.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.2: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.2.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer2.2.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 4, channels: 128, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.2.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer2.2.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 4, channels: 128, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.2.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer2.2.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.2.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.3: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.3.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer2.3.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 4, channels: 128, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.3.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer2.3.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 4, channels: 128, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.3.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer2.3.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.3.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer2.4: <class 'torch.nn.modules.dropout.Dropout2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer3: <class 'torch.nn.modules.container.Sequential'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer3.0: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer3.0.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer3.0.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer3.0.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer3.0.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer3.0.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer3.0.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 32, channels: 1024, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer3.0.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer3.0.downsample: <class 'torch.nn.modules.container.Sequential'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer3.0.downsample.0: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,605 {dist_trainer.py:183}] <INFO> layer3.0.downsample.1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 32, channels: 1024, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,605 {dist_trainer.py:186}] <INFO> layer3.1: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.1.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.1.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.1.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.1.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.1.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.1.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 32, channels: 1024, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.1.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.2: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.2.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.2.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.2.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.2.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.2.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.2.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 32, channels: 1024, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.2.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.3: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.3.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.3.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.3.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.3.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.3.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.3.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 32, channels: 1024, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.3.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.4: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.4.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.4.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.4.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.4.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.4.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:183}] <INFO> layer3.4.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 32, channels: 1024, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.4.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.5: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,606 {dist_trainer.py:186}] <INFO> layer3.5.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer3.5.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer3.5.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer3.5.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 8, channels: 256, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer3.5.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer3.5.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 32, channels: 1024, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer3.5.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer3.6: <class 'torch.nn.modules.dropout.Dropout2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4: <class 'torch.nn.modules.container.Sequential'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.0: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.0.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.0.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.0.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.0.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.0.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.0.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 64, channels: 2048, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.0.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.0.downsample: <class 'torch.nn.modules.container.Sequential'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.0.downsample.0: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.0.downsample.1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 64, channels: 2048, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.1: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.1.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.1.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.1.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.1.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.1.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.1.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 64, channels: 2048, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.1.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.2: <class 'model.resnet.Bottleneck'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.2.conv1: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.2.bn1: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.2.conv2: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.2.bn2: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 16, channels: 512, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.2.conv3: <class 'torch.nn.modules.conv.Conv2d'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:183}] <INFO> layer4.2.bn3: <class 'torch.nn.modules.normalization.GroupNorm'>, groups: 64, channels: 2048, eps: 0.000010, affine: True
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> layer4.2.relu: <class 'torch.nn.modules.activation.ReLU'>
+[2022-11-04 15:32:11,607 {dist_trainer.py:186}] <INFO> avgpool: <class 'torch.nn.modules.pooling.AdaptiveAvgPool2d'>
+[2022-11-04 15:32:11,608 {dist_trainer.py:186}] <INFO> dropout_fc: <class 'torch.nn.modules.dropout.Dropout'>
+[2022-11-04 15:32:11,608 {dist_trainer.py:186}] <INFO> fc: <class 'torch.nn.modules.linear.Linear'>
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: conv1.weight 37632B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: bn1.weight 256B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: bn1.bias 256B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.conv1.weight 16384B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.bn1.weight 256B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.bn1.bias 256B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.conv2.weight 147456B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.bn2.weight 256B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.bn2.bias 256B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.conv3.weight 65536B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.bn3.weight 1024B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.bn3.bias 1024B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.downsample.0.weight 65536B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.downsample.1.weight 1024B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.0.downsample.1.bias 1024B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.1.conv1.weight 65536B
+[2022-11-04 15:32:11,608 {dist_trainer.py:192}] <INFO> parameter size: layer1.1.bn1.weight 256B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.1.bn1.bias 256B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.1.conv2.weight 147456B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.1.bn2.weight 256B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.1.bn2.bias 256B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.1.conv3.weight 65536B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.1.bn3.weight 1024B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.1.bn3.bias 1024B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.2.conv1.weight 65536B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.2.bn1.weight 256B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.2.bn1.bias 256B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.2.conv2.weight 147456B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.2.bn2.weight 256B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.2.bn2.bias 256B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.2.conv3.weight 65536B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.2.bn3.weight 1024B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer1.2.bn3.bias 1024B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.conv1.weight 131072B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.bn1.weight 512B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.bn1.bias 512B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.conv2.weight 589824B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.bn2.weight 512B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.bn2.bias 512B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.conv3.weight 262144B
+[2022-11-04 15:32:11,609 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.bn3.weight 2048B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.bn3.bias 2048B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.downsample.0.weight 524288B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.downsample.1.weight 2048B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.0.downsample.1.bias 2048B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.1.conv1.weight 262144B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.1.bn1.weight 512B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.1.bn1.bias 512B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.1.conv2.weight 589824B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.1.bn2.weight 512B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.1.bn2.bias 512B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.1.conv3.weight 262144B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.1.bn3.weight 2048B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.1.bn3.bias 2048B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.2.conv1.weight 262144B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.2.bn1.weight 512B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.2.bn1.bias 512B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.2.conv2.weight 589824B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.2.bn2.weight 512B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.2.bn2.bias 512B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.2.conv3.weight 262144B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.2.bn3.weight 2048B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.2.bn3.bias 2048B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.3.conv1.weight 262144B
+[2022-11-04 15:32:11,610 {dist_trainer.py:192}] <INFO> parameter size: layer2.3.bn1.weight 512B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer2.3.bn1.bias 512B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer2.3.conv2.weight 589824B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer2.3.bn2.weight 512B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer2.3.bn2.bias 512B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer2.3.conv3.weight 262144B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer2.3.bn3.weight 2048B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer2.3.bn3.bias 2048B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.conv1.weight 524288B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.bn1.weight 1024B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.bn1.bias 1024B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.conv2.weight 2359296B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.bn2.weight 1024B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.bn2.bias 1024B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.conv3.weight 1048576B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.bn3.weight 4096B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.bn3.bias 4096B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.downsample.0.weight 2097152B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.downsample.1.weight 4096B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.0.downsample.1.bias 4096B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.1.conv1.weight 1048576B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.1.bn1.weight 1024B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.1.bn1.bias 1024B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.1.conv2.weight 2359296B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.1.bn2.weight 1024B
+[2022-11-04 15:32:11,611 {dist_trainer.py:192}] <INFO> parameter size: layer3.1.bn2.bias 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.1.conv3.weight 1048576B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.1.bn3.weight 4096B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.1.bn3.bias 4096B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.2.conv1.weight 1048576B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.2.bn1.weight 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.2.bn1.bias 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.2.conv2.weight 2359296B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.2.bn2.weight 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.2.bn2.bias 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.2.conv3.weight 1048576B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.2.bn3.weight 4096B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.2.bn3.bias 4096B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.3.conv1.weight 1048576B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.3.bn1.weight 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.3.bn1.bias 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.3.conv2.weight 2359296B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.3.bn2.weight 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.3.bn2.bias 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.3.conv3.weight 1048576B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.3.bn3.weight 4096B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.3.bn3.bias 4096B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.4.conv1.weight 1048576B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.4.bn1.weight 1024B
+[2022-11-04 15:32:11,612 {dist_trainer.py:192}] <INFO> parameter size: layer3.4.bn1.bias 1024B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.4.conv2.weight 2359296B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.4.bn2.weight 1024B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.4.bn2.bias 1024B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.4.conv3.weight 1048576B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.4.bn3.weight 4096B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.4.bn3.bias 4096B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.5.conv1.weight 1048576B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.5.bn1.weight 1024B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.5.bn1.bias 1024B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.5.conv2.weight 2359296B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.5.bn2.weight 1024B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.5.bn2.bias 1024B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.5.conv3.weight 1048576B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.5.bn3.weight 4096B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer3.5.bn3.bias 4096B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.conv1.weight 2097152B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.bn1.weight 2048B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.bn1.bias 2048B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.conv2.weight 9437184B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.bn2.weight 2048B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.bn2.bias 2048B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.conv3.weight 4194304B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.bn3.weight 8192B
+[2022-11-04 15:32:11,613 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.bn3.bias 8192B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.downsample.0.weight 8388608B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.downsample.1.weight 8192B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.0.downsample.1.bias 8192B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.1.conv1.weight 4194304B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.1.bn1.weight 2048B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.1.bn1.bias 2048B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.1.conv2.weight 9437184B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.1.bn2.weight 2048B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.1.bn2.bias 2048B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.1.conv3.weight 4194304B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.1.bn3.weight 8192B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.1.bn3.bias 8192B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.2.conv1.weight 4194304B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.2.bn1.weight 2048B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.2.bn1.bias 2048B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.2.conv2.weight 9437184B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.2.bn2.weight 2048B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.2.bn2.bias 2048B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.2.conv3.weight 4194304B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.2.bn3.weight 8192B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: layer4.2.bn3.bias 8192B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: fc.weight 81920B
+[2022-11-04 15:32:11,614 {dist_trainer.py:192}] <INFO> parameter size: fc.bias 40B
+[2022-11-04 15:32:11,614 {dist_trainer.py:194}] <INFO> Model: resnet50 size: 89.754MiB
+[2022-11-04 15:32:16,552 {dist_trainer.py:78}] <INFO> device: cuda:3 0/4, NVIDIA TITAN RTX
+[2022-11-04 15:32:17,864 {dist_trainer.py:494}] <INFO> node0: [7,8,2,6,4,5,1,3]
+[2022-11-04 15:32:17,864 {dist_trainer.py:494}] <INFO> node1: [4,5,1,3,0,9,7,8]
+[2022-11-04 15:32:17,864 {dist_trainer.py:494}] <INFO> node2: [0,9,7,8,2,6,4,5]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 0, [node1:0.472,node2:0.528]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 1, [node0:0.505,node1:0.495]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 2, [node0:0.535,node2:0.465]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 3, [node0:0.502,node1:0.498]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 4, [node0:0.325,node1:0.361,node2:0.314]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 5, [node0:0.327,node1:0.343,node2:0.330]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 6, [node0:0.497,node2:0.503]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 7, [node0:0.340,node1:0.338,node2:0.322]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 8, [node0:0.305,node1:0.352,node2:0.343]
+[2022-11-04 15:32:17,864 {dist_trainer.py:497}] <INFO> class 9, [node1:0.475,node2:0.525]
+[2022-11-04 15:32:17,865 {dist_trainer.py:527}] <INFO> train data node0: 1:2523,2:2675,3:2509,4:1624,5:1634,6:2484,7:1700,8:1524
+[2022-11-04 15:32:17,866 {dist_trainer.py:527}] <INFO> train data node1: 0:2360,1:2477,3:2491,4:1806,5:1714,7:1690,8:1758,9:2375
+[2022-11-04 15:32:17,866 {dist_trainer.py:527}] <INFO> train data node2: 0:2640,2:2325,4:1570,5:1652,6:2516,7:1610,8:1718,9:2625
+[2022-11-04 15:32:30,751 {dist_trainer.py:531}] <INFO> split_load_datas(END)
+[2022-11-04 15:32:30,752 {dist_trainer.py:114}] <INFO> datasets(END)
+[2022-11-04 15:32:30,752 {dist_trainer.py:713}] <INFO> build_criterion(1)
+[2022-11-04 15:32:30,752 {dist_trainer.py:721}] <INFO> build_criterion(2)
+[2022-11-04 15:32:30,763 {contract.py:21}] <INFO> 0
+[2022-11-04 15:32:30,764 {contract.py:21}] <INFO> 1
+[2022-11-04 15:32:30,764 {contract.py:21}] <INFO> 2
+[2022-11-04 15:32:30,816 {distributed_c10d.py:228}] <INFO> Added key: store_based_barrier_key:1 to store for rank: 2
+[2022-11-04 15:32:30,817 {distributed_c10d.py:262}] <INFO> Rank 2: Completed store-based barrier for key:store_based_barrier_key:1 with 3 nodes.
+[2022-11-04 15:32:30,981 {contract.py:36}] <INFO> contract(1)
+[2022-11-04 15:32:31,102 {contract.py:44}] <INFO> <CLI> node2 : edge setup.
+[2022-11-04 15:32:31,117 {gateway.py:59}] <INFO> <SRV> node2 : edge setup.
+[2022-11-04 15:32:31,905 {contract.py:59}] <INFO> contract(2)
+[2022-11-04 15:32:31,905 {gossip_sgd.py:18}] <INFO> Optimizer <class 'optimizer.gossip_sgd.GossipSGD'> params: {'lr': 0.002, 'momentum': 0.0, 'dampening': 0.0, 'weight_decay': 0.0, 'nesterov': False, 'initial_lr': 0.002}
+[2022-11-04 15:32:31,906 {dist_trainer.py:725}] <INFO> build_optimizer()
+[2022-11-04 15:32:31,906 {dist_trainer.py:736}] <INFO> Setup scheduler: <torch.optim.lr_scheduler.StepLR object at 0x7f460ce5d490>
+[2022-11-04 15:33:06,767 {dist_trainer.py:770}] <INFO> [   1/ 200] connecting edge count: 2
+[2022-11-04 15:33:58,971 {dist_trainer.py:821}] <INFO> [   1/ 200] loss: (train=2.546, val=2.392, test=2.392, l2=17697.223), acc: (train=0.252, val=0.160, test=0.154), diff=0.00000003, proc(train=34.861sec, eval=50.656sec)
+[2022-11-04 15:34:29,759 {dist_trainer.py:770}] <INFO> [   2/ 200] connecting edge count: 2
+[2022-11-04 15:35:23,989 {dist_trainer.py:821}] <INFO> [   2/ 200] loss: (train=2.432, val=2.452, test=2.449, l2=17687.820), acc: (train=0.154, val=0.102, test=0.102), diff=0.00000003, proc(train=30.787sec, eval=52.901sec)
+[2022-11-04 15:35:54,732 {dist_trainer.py:770}] <INFO> [   3/ 200] connecting edge count: 2
+[2022-11-04 15:36:44,288 {dist_trainer.py:821}] <INFO> [   3/ 200] loss: (train=2.374, val=2.405, test=2.409, l2=17677.369), acc: (train=0.188, val=0.159, test=0.152), diff=0.00000002, proc(train=30.743sec, eval=48.288sec)
+[2022-11-04 15:37:17,737 {dist_trainer.py:770}] <INFO> [   4/ 200] connecting edge count: 2
+[2022-11-04 15:38:06,428 {dist_trainer.py:821}] <INFO> [   4/ 200] loss: (train=2.316, val=2.314, test=2.317, l2=17665.066), acc: (train=0.250, val=0.200, test=0.194), diff=0.00000003, proc(train=33.448sec, eval=47.319sec)
+[2022-11-04 15:38:39,647 {dist_trainer.py:770}] <INFO> [   5/ 200] connecting edge count: 2
+[2022-11-04 15:39:32,498 {dist_trainer.py:821}] <INFO> [   5/ 200] loss: (train=2.269, val=2.282, test=2.278, l2=17654.719), acc: (train=0.276, val=0.183, test=0.181), diff=0.00000003, proc(train=33.218sec, eval=51.153sec)
+[2022-11-04 15:40:07,120 {dist_trainer.py:770}] <INFO> [   6/ 200] connecting edge count: 2
+[2022-11-04 15:40:56,568 {dist_trainer.py:821}] <INFO> [   6/ 200] loss: (train=2.262, val=2.404, test=2.412, l2=17644.434), acc: (train=0.313, val=0.215, test=0.213), diff=0.00000003, proc(train=34.622sec, eval=47.919sec)
+[2022-11-04 15:41:29,096 {dist_trainer.py:770}] <INFO> [   7/ 200] connecting edge count: 2
+[2022-11-04 15:42:20,208 {dist_trainer.py:821}] <INFO> [   7/ 200] loss: (train=2.239, val=2.242, test=2.248, l2=17635.680), acc: (train=0.244, val=0.194, test=0.196), diff=0.00000003, proc(train=32.527sec, eval=49.486sec)
+[2022-11-04 15:42:53,782 {dist_trainer.py:770}] <INFO> [   8/ 200] connecting edge count: 2
+[2022-11-04 15:43:43,166 {dist_trainer.py:821}] <INFO> [   8/ 200] loss: (train=2.181, val=2.230, test=2.229, l2=17624.959), acc: (train=0.332, val=0.229, test=0.230), diff=0.00000003, proc(train=33.573sec, eval=47.962sec)
+[2022-11-04 15:44:16,214 {dist_trainer.py:770}] <INFO> [   9/ 200] connecting edge count: 2
+[2022-11-04 15:45:09,300 {dist_trainer.py:821}] <INFO> [   9/ 200] loss: (train=2.146, val=2.233, test=2.238, l2=17614.082), acc: (train=0.333, val=0.227, test=0.227), diff=0.00000003, proc(train=33.048sec, eval=51.712sec)
+[2022-11-04 15:45:42,394 {dist_trainer.py:770}] <INFO> [  10/ 200] connecting edge count: 2
+[2022-11-04 15:46:32,256 {dist_trainer.py:821}] <INFO> [  10/ 200] loss: (train=2.118, val=2.234, test=2.226, l2=17604.311), acc: (train=0.317, val=0.211, test=0.215), diff=0.00000003, proc(train=33.094sec, eval=48.580sec)
+[2022-11-04 15:47:05,517 {dist_trainer.py:770}] <INFO> [  11/ 200] connecting edge count: 2
+[2022-11-04 15:47:55,488 {dist_trainer.py:821}] <INFO> [  11/ 200] loss: (train=2.104, val=2.152, test=2.146, l2=17594.926), acc: (train=0.364, val=0.267, test=0.275), diff=0.00000003, proc(train=33.261sec, eval=48.566sec)
+[2022-11-04 15:48:27,683 {dist_trainer.py:770}] <INFO> [  12/ 200] connecting edge count: 2
+[2022-11-04 15:49:18,823 {dist_trainer.py:821}] <INFO> [  12/ 200] loss: (train=2.112, val=2.192, test=2.189, l2=17584.568), acc: (train=0.337, val=0.246, test=0.248), diff=0.00000003, proc(train=32.194sec, eval=49.288sec)
+[2022-11-04 15:49:53,268 {dist_trainer.py:770}] <INFO> [  13/ 200] connecting edge count: 2
+[2022-11-04 15:50:43,783 {dist_trainer.py:821}] <INFO> [  13/ 200] loss: (train=2.025, val=2.098, test=2.092, l2=17575.230), acc: (train=0.358, val=0.278, test=0.277), diff=0.00000003, proc(train=34.445sec, eval=49.050sec)
+[2022-11-04 15:51:17,537 {dist_trainer.py:770}] <INFO> [  14/ 200] connecting edge count: 2
+[2022-11-04 15:52:07,184 {dist_trainer.py:821}] <INFO> [  14/ 200] loss: (train=2.001, val=2.170, test=2.167, l2=17565.201), acc: (train=0.331, val=0.252, test=0.251), diff=0.00000003, proc(train=33.754sec, eval=48.195sec)
+[2022-11-04 15:52:39,016 {dist_trainer.py:770}] <INFO> [  15/ 200] connecting edge count: 2
+[2022-11-04 15:53:31,391 {dist_trainer.py:821}] <INFO> [  15/ 200] loss: (train=1.971, val=2.023, test=2.012, l2=17554.846), acc: (train=0.386, val=0.292, test=0.295), diff=0.00000003, proc(train=31.832sec, eval=50.719sec)
+[2022-11-04 15:54:04,502 {dist_trainer.py:770}] <INFO> [  16/ 200] connecting edge count: 2
+[2022-11-04 15:54:54,856 {dist_trainer.py:821}] <INFO> [  16/ 200] loss: (train=1.959, val=2.029, test=2.029, l2=17545.621), acc: (train=0.392, val=0.298, test=0.298), diff=0.00000003, proc(train=33.111sec, eval=48.983sec)
+[2022-11-04 15:55:28,579 {dist_trainer.py:770}] <INFO> [  17/ 200] connecting edge count: 2
+[2022-11-04 15:56:15,045 {dist_trainer.py:821}] <INFO> [  17/ 200] loss: (train=1.942, val=2.146, test=2.146, l2=17533.984), acc: (train=0.360, val=0.265, test=0.268), diff=0.00000003, proc(train=33.723sec, eval=45.092sec)
+[2022-11-04 15:56:48,790 {dist_trainer.py:770}] <INFO> [  18/ 200] connecting edge count: 2
+[2022-11-04 15:57:37,871 {dist_trainer.py:821}] <INFO> [  18/ 200] loss: (train=1.914, val=2.187, test=2.173, l2=17522.738), acc: (train=0.362, val=0.257, test=0.263), diff=0.00000003, proc(train=33.744sec, eval=47.304sec)
+[2022-11-04 15:58:10,385 {dist_trainer.py:770}] <INFO> [  19/ 200] connecting edge count: 2
+[2022-11-04 15:59:04,831 {dist_trainer.py:821}] <INFO> [  19/ 200] loss: (train=1.905, val=1.998, test=2.001, l2=17511.006), acc: (train=0.399, val=0.320, test=0.315), diff=0.00000003, proc(train=32.514sec, eval=52.716sec)
+[2022-11-04 15:59:34,985 {dist_trainer.py:770}] <INFO> [  20/ 200] connecting edge count: 2
+[2022-11-04 16:00:25,342 {dist_trainer.py:821}] <INFO> [  20/ 200] loss: (train=1.888, val=2.052, test=2.057, l2=17501.543), acc: (train=0.385, val=0.300, test=0.298), diff=0.00000003, proc(train=30.154sec, eval=49.041sec)
+[2022-11-04 16:00:56,301 {dist_trainer.py:770}] <INFO> [  21/ 200] connecting edge count: 2
+[2022-11-04 16:01:43,560 {dist_trainer.py:821}] <INFO> [  21/ 200] loss: (train=1.871, val=2.004, test=2.002, l2=17490.320), acc: (train=0.394, val=0.308, test=0.307), diff=0.00000003, proc(train=30.959sec, eval=45.661sec)
+[2022-11-04 16:02:15,856 {dist_trainer.py:770}] <INFO> [  22/ 200] connecting edge count: 2
+[2022-11-04 16:03:03,388 {dist_trainer.py:821}] <INFO> [  22/ 200] loss: (train=1.857, val=1.878, test=1.879, l2=17478.195), acc: (train=0.416, val=0.335, test=0.333), diff=0.00000003, proc(train=32.296sec, eval=46.188sec)
+[2022-11-04 16:03:34,438 {dist_trainer.py:770}] <INFO> [  23/ 200] connecting edge count: 2
+[2022-11-04 16:04:24,257 {dist_trainer.py:821}] <INFO> [  23/ 200] loss: (train=1.849, val=1.976, test=1.969, l2=17466.928), acc: (train=0.397, val=0.317, test=0.326), diff=0.00000003, proc(train=31.049sec, eval=48.243sec)
+[2022-11-04 16:04:56,295 {dist_trainer.py:770}] <INFO> [  24/ 200] connecting edge count: 2
+[2022-11-04 16:05:50,700 {dist_trainer.py:821}] <INFO> [  24/ 200] loss: (train=1.812, val=1.875, test=1.872, l2=17455.852), acc: (train=0.430, val=0.343, test=0.347), diff=0.00000002, proc(train=32.038sec, eval=52.870sec)
+[2022-11-04 16:06:22,468 {dist_trainer.py:770}] <INFO> [  25/ 200] connecting edge count: 2
+[2022-11-04 16:07:11,775 {dist_trainer.py:821}] <INFO> [  25/ 200] loss: (train=1.822, val=1.900, test=1.903, l2=17444.518), acc: (train=0.414, val=0.342, test=0.339), diff=0.00000002, proc(train=31.768sec, eval=48.009sec)
+[2022-11-04 16:07:44,882 {dist_trainer.py:770}] <INFO> [  26/ 200] connecting edge count: 2
+[2022-11-04 16:08:31,139 {dist_trainer.py:821}] <INFO> [  26/ 200] loss: (train=1.812, val=1.905, test=1.904, l2=17431.887), acc: (train=0.442, val=0.345, test=0.343), diff=0.00000002, proc(train=33.107sec, eval=44.737sec)
+[2022-11-04 16:09:04,224 {dist_trainer.py:770}] <INFO> [  27/ 200] connecting edge count: 2
+[2022-11-04 16:09:55,617 {dist_trainer.py:821}] <INFO> [  27/ 200] loss: (train=1.786, val=1.841, test=1.839, l2=17420.559), acc: (train=0.450, val=0.351, test=0.352), diff=0.00000003, proc(train=33.085sec, eval=49.918sec)
+[2022-11-04 16:10:29,575 {dist_trainer.py:770}] <INFO> [  28/ 200] connecting edge count: 2
+[2022-11-04 16:11:22,125 {dist_trainer.py:821}] <INFO> [  28/ 200] loss: (train=1.784, val=1.918, test=1.914, l2=17408.486), acc: (train=0.448, val=0.342, test=0.345), diff=0.00000002, proc(train=33.958sec, eval=51.060sec)
+[2022-11-04 16:11:55,027 {dist_trainer.py:770}] <INFO> [  29/ 200] connecting edge count: 2
+[2022-11-04 16:12:43,830 {dist_trainer.py:821}] <INFO> [  29/ 200] loss: (train=1.750, val=1.811, test=1.812, l2=17397.715), acc: (train=0.449, val=0.366, test=0.369), diff=0.00000002, proc(train=32.902sec, eval=47.303sec)
+[2022-11-04 16:13:16,455 {dist_trainer.py:770}] <INFO> [  30/ 200] connecting edge count: 2
+[2022-11-04 16:14:10,257 {dist_trainer.py:821}] <INFO> [  30/ 200] loss: (train=1.747, val=1.835, test=1.835, l2=17388.275), acc: (train=0.472, val=0.361, test=0.357), diff=0.00000003, proc(train=32.624sec, eval=51.941sec)
+[2022-11-04 16:14:42,809 {dist_trainer.py:770}] <INFO> [  31/ 200] connecting edge count: 2
+[2022-11-04 16:15:33,669 {dist_trainer.py:821}] <INFO> [  31/ 200] loss: (train=1.747, val=1.886, test=1.890, l2=17376.967), acc: (train=0.437, val=0.345, test=0.344), diff=0.00000002, proc(train=32.552sec, eval=49.685sec)
+[2022-11-04 16:16:05,180 {dist_trainer.py:770}] <INFO> [  32/ 200] connecting edge count: 2
+[2022-11-04 16:16:52,790 {dist_trainer.py:821}] <INFO> [  32/ 200] loss: (train=1.741, val=1.817, test=1.822, l2=17365.344), acc: (train=0.430, val=0.360, test=0.360), diff=0.00000002, proc(train=31.511sec, eval=46.343sec)
+[2022-11-04 16:17:26,959 {dist_trainer.py:770}] <INFO> [  33/ 200] connecting edge count: 2
+[2022-11-04 16:18:12,810 {dist_trainer.py:821}] <INFO> [  33/ 200] loss: (train=1.738, val=1.766, test=1.774, l2=17352.285), acc: (train=0.475, val=0.370, test=0.370), diff=0.00000002, proc(train=34.169sec, eval=44.295sec)
+[2022-11-04 16:18:45,576 {dist_trainer.py:770}] <INFO> [  34/ 200] connecting edge count: 2
+[2022-11-04 16:19:34,744 {dist_trainer.py:821}] <INFO> [  34/ 200] loss: (train=1.725, val=1.907, test=1.909, l2=17340.250), acc: (train=0.459, val=0.344, test=0.343), diff=0.00000003, proc(train=32.765sec, eval=47.250sec)
+[2022-11-04 16:20:06,127 {dist_trainer.py:770}] <INFO> [  35/ 200] connecting edge count: 2
+[2022-11-04 16:21:01,287 {dist_trainer.py:821}] <INFO> [  35/ 200] loss: (train=1.738, val=1.820, test=1.826, l2=17328.811), acc: (train=0.465, val=0.382, test=0.379), diff=0.00000003, proc(train=31.382sec, eval=53.416sec)
+[2022-11-04 16:21:33,151 {dist_trainer.py:770}] <INFO> [  36/ 200] connecting edge count: 2
+[2022-11-04 16:22:22,940 {dist_trainer.py:821}] <INFO> [  36/ 200] loss: (train=1.718, val=1.889, test=1.900, l2=17317.762), acc: (train=0.434, val=0.353, test=0.348), diff=0.00000003, proc(train=31.864sec, eval=48.620sec)
+[2022-11-04 16:22:57,685 {dist_trainer.py:770}] <INFO> [  37/ 200] connecting edge count: 2
+[2022-11-04 16:23:42,964 {dist_trainer.py:821}] <INFO> [  37/ 200] loss: (train=1.700, val=1.788, test=1.798, l2=17304.469), acc: (train=0.482, val=0.376, test=0.372), diff=0.00000002, proc(train=34.745sec, eval=44.007sec)
+[2022-11-04 16:24:17,177 {dist_trainer.py:770}] <INFO> [  38/ 200] connecting edge count: 2
+[2022-11-04 16:25:07,005 {dist_trainer.py:821}] <INFO> [  38/ 200] loss: (train=1.681, val=2.006, test=2.011, l2=17290.668), acc: (train=0.444, val=0.329, test=0.327), diff=0.00000003, proc(train=34.213sec, eval=48.175sec)
+[2022-11-04 16:25:37,908 {dist_trainer.py:770}] <INFO> [  39/ 200] connecting edge count: 2
+[2022-11-04 16:26:33,227 {dist_trainer.py:821}] <INFO> [  39/ 200] loss: (train=1.693, val=1.876, test=1.883, l2=17280.271), acc: (train=0.459, val=0.358, test=0.353), diff=0.00000003, proc(train=30.902sec, eval=53.660sec)
+[2022-11-04 16:27:04,872 {dist_trainer.py:770}] <INFO> [  40/ 200] connecting edge count: 2
+[2022-11-04 16:27:55,450 {dist_trainer.py:821}] <INFO> [  40/ 200] loss: (train=1.688, val=1.788, test=1.801, l2=17270.441), acc: (train=0.468, val=0.385, test=0.385), diff=0.00000002, proc(train=31.644sec, eval=49.266sec)
+[2022-11-04 16:28:28,715 {dist_trainer.py:770}] <INFO> [  41/ 200] connecting edge count: 2
+[2022-11-04 16:29:16,002 {dist_trainer.py:821}] <INFO> [  41/ 200] loss: (train=1.670, val=1.718, test=1.730, l2=17258.029), acc: (train=0.497, val=0.397, test=0.393), diff=0.00000003, proc(train=33.265sec, eval=46.056sec)
+[2022-11-04 16:29:49,884 {dist_trainer.py:770}] <INFO> [  42/ 200] connecting edge count: 2
+[2022-11-04 16:30:35,218 {dist_trainer.py:821}] <INFO> [  42/ 200] loss: (train=1.680, val=1.699, test=1.711, l2=17244.049), acc: (train=0.479, val=0.402, test=0.398), diff=0.00000003, proc(train=33.882sec, eval=44.078sec)
+[2022-11-04 16:31:09,860 {dist_trainer.py:770}] <INFO> [  43/ 200] connecting edge count: 2
+[2022-11-04 16:31:59,785 {dist_trainer.py:821}] <INFO> [  43/ 200] loss: (train=1.639, val=1.792, test=1.806, l2=17230.121), acc: (train=0.496, val=0.395, test=0.391), diff=0.00000003, proc(train=34.641sec, eval=48.150sec)
+[2022-11-04 16:32:31,238 {dist_trainer.py:770}] <INFO> [  44/ 200] connecting edge count: 2
+[2022-11-04 16:33:25,691 {dist_trainer.py:821}] <INFO> [  44/ 200] loss: (train=1.641, val=1.780, test=1.788, l2=17221.236), acc: (train=0.463, val=0.385, test=0.388), diff=0.00000003, proc(train=31.453sec, eval=52.886sec)
+[2022-11-04 16:33:58,441 {dist_trainer.py:770}] <INFO> [  45/ 200] connecting edge count: 2
+[2022-11-04 16:34:48,090 {dist_trainer.py:821}] <INFO> [  45/ 200] loss: (train=1.626, val=1.765, test=1.775, l2=17209.934), acc: (train=0.499, val=0.397, test=0.393), diff=0.00000003, proc(train=32.750sec, eval=48.264sec)
+[2022-11-04 16:35:20,653 {dist_trainer.py:770}] <INFO> [  46/ 200] connecting edge count: 2
+[2022-11-04 16:36:10,654 {dist_trainer.py:821}] <INFO> [  46/ 200] loss: (train=1.624, val=1.985, test=1.991, l2=17199.375), acc: (train=0.437, val=0.335, test=0.337), diff=0.00000003, proc(train=32.562sec, eval=48.284sec)
+[2022-11-04 16:36:41,604 {dist_trainer.py:770}] <INFO> [  47/ 200] connecting edge count: 2
+[2022-11-04 16:37:34,994 {dist_trainer.py:821}] <INFO> [  47/ 200] loss: (train=1.606, val=1.584, test=1.596, l2=17191.275), acc: (train=0.485, val=0.429, test=0.423), diff=0.00000002, proc(train=30.950sec, eval=51.710sec)
+[2022-11-04 16:38:08,610 {dist_trainer.py:770}] <INFO> [  48/ 200] connecting edge count: 2
+[2022-11-04 16:39:00,163 {dist_trainer.py:821}] <INFO> [  48/ 200] loss: (train=1.609, val=1.693, test=1.706, l2=17182.209), acc: (train=0.513, val=0.413, test=0.410), diff=0.00000002, proc(train=33.616sec, eval=50.222sec)
+[2022-11-04 16:39:31,419 {dist_trainer.py:770}] <INFO> [  49/ 200] connecting edge count: 2
+[2022-11-04 16:40:21,121 {dist_trainer.py:821}] <INFO> [  49/ 200] loss: (train=1.602, val=1.763, test=1.778, l2=17174.260), acc: (train=0.494, val=0.409, test=0.406), diff=0.00000003, proc(train=31.255sec, eval=48.337sec)
+[2022-11-04 16:40:53,419 {dist_trainer.py:770}] <INFO> [  50/ 200] connecting edge count: 2
+[2022-11-04 16:41:44,377 {dist_trainer.py:821}] <INFO> [  50/ 200] loss: (train=1.589, val=1.838, test=1.846, l2=17164.566), acc: (train=0.497, val=0.374, test=0.368), diff=0.00000003, proc(train=32.298sec, eval=49.406sec)
+[2022-11-04 16:42:17,026 {dist_trainer.py:770}] <INFO> [  51/ 200] connecting edge count: 2
+[2022-11-04 16:43:09,775 {dist_trainer.py:821}] <INFO> [  51/ 200] loss: (train=1.612, val=1.602, test=1.618, l2=17155.051), acc: (train=0.510, val=0.430, test=0.424), diff=0.00000003, proc(train=32.649sec, eval=51.269sec)
+[2022-11-04 16:43:42,557 {dist_trainer.py:770}] <INFO> [  52/ 200] connecting edge count: 2
+[2022-11-04 16:44:33,732 {dist_trainer.py:821}] <INFO> [  52/ 200] loss: (train=1.565, val=1.699, test=1.713, l2=17144.285), acc: (train=0.506, val=0.407, test=0.403), diff=0.00000003, proc(train=32.781sec, eval=49.698sec)
+[2022-11-04 16:45:04,523 {dist_trainer.py:770}] <INFO> [  53/ 200] connecting edge count: 2
+[2022-11-04 16:45:51,513 {dist_trainer.py:821}] <INFO> [  53/ 200] loss: (train=1.578, val=1.825, test=1.836, l2=17133.371), acc: (train=0.484, val=0.388, test=0.387), diff=0.00000003, proc(train=30.791sec, eval=45.767sec)
+[2022-11-04 16:46:26,155 {dist_trainer.py:770}] <INFO> [  54/ 200] connecting edge count: 2
+[2022-11-04 16:47:12,250 {dist_trainer.py:821}] <INFO> [  54/ 200] loss: (train=1.578, val=1.667, test=1.683, l2=17120.082), acc: (train=0.480, val=0.408, test=0.404), diff=0.00000003, proc(train=34.643sec, eval=44.485sec)
+[2022-11-04 16:47:45,727 {dist_trainer.py:770}] <INFO> [  55/ 200] connecting edge count: 2
+[2022-11-04 16:48:30,516 {dist_trainer.py:821}] <INFO> [  55/ 200] loss: (train=1.578, val=1.596, test=1.610, l2=17105.701), acc: (train=0.510, val=0.438, test=0.429), diff=0.00000002, proc(train=33.477sec, eval=43.562sec)
+[2022-11-04 16:49:05,615 {dist_trainer.py:770}] <INFO> [  56/ 200] connecting edge count: 2
+[2022-11-04 16:49:56,763 {dist_trainer.py:821}] <INFO> [  56/ 200] loss: (train=1.561, val=1.668, test=1.684, l2=17091.750), acc: (train=0.497, val=0.422, test=0.415), diff=0.00000003, proc(train=35.099sec, eval=49.366sec)
+[2022-11-04 16:50:26,971 {dist_trainer.py:770}] <INFO> [  57/ 200] connecting edge count: 2
+[2022-11-04 16:51:21,611 {dist_trainer.py:821}] <INFO> [  57/ 200] loss: (train=1.555, val=1.716, test=1.729, l2=17082.783), acc: (train=0.475, val=0.404, test=0.401), diff=0.00000003, proc(train=30.207sec, eval=53.325sec)
+[2022-11-04 16:51:52,524 {dist_trainer.py:770}] <INFO> [  58/ 200] connecting edge count: 2
+[2022-11-04 16:52:41,719 {dist_trainer.py:821}] <INFO> [  58/ 200] loss: (train=1.557, val=1.690, test=1.705, l2=17072.375), acc: (train=0.519, val=0.421, test=0.412), diff=0.00000003, proc(train=30.912sec, eval=48.064sec)
+[2022-11-04 16:53:14,196 {dist_trainer.py:770}] <INFO> [  59/ 200] connecting edge count: 2
+[2022-11-04 16:54:01,728 {dist_trainer.py:821}] <INFO> [  59/ 200] loss: (train=1.570, val=1.697, test=1.717, l2=17060.758), acc: (train=0.488, val=0.408, test=0.407), diff=0.00000003, proc(train=32.477sec, eval=46.132sec)
+[2022-11-04 16:54:35,450 {dist_trainer.py:770}] <INFO> [  60/ 200] connecting edge count: 2
+[2022-11-04 16:55:27,906 {dist_trainer.py:821}] <INFO> [  60/ 200] loss: (train=1.541, val=1.568, test=1.583, l2=17050.223), acc: (train=0.523, val=0.442, test=0.435), diff=0.00000002, proc(train=33.721sec, eval=50.730sec)
+[2022-11-04 16:55:59,254 {dist_trainer.py:770}] <INFO> [  61/ 200] connecting edge count: 2
+[2022-11-04 16:56:49,011 {dist_trainer.py:821}] <INFO> [  61/ 200] loss: (train=1.547, val=1.663, test=1.683, l2=17042.182), acc: (train=0.511, val=0.417, test=0.409), diff=0.00000003, proc(train=31.347sec, eval=48.440sec)
+[2022-11-04 16:57:21,976 {dist_trainer.py:770}] <INFO> [  62/ 200] connecting edge count: 2
+[2022-11-04 16:58:11,366 {dist_trainer.py:821}] <INFO> [  62/ 200] loss: (train=1.560, val=1.737, test=1.748, l2=17031.596), acc: (train=0.479, val=0.398, test=0.393), diff=0.00000003, proc(train=32.965sec, eval=48.011sec)
+[2022-11-04 16:58:46,416 {dist_trainer.py:770}] <INFO> [  63/ 200] connecting edge count: 2
+[2022-11-04 16:59:39,212 {dist_trainer.py:821}] <INFO> [  63/ 200] loss: (train=1.523, val=1.798, test=1.814, l2=17022.963), acc: (train=0.508, val=0.403, test=0.398), diff=0.00000003, proc(train=35.050sec, eval=51.615sec)
+[2022-11-04 17:00:12,860 {dist_trainer.py:770}] <INFO> [  64/ 200] connecting edge count: 2
+[2022-11-04 17:01:03,789 {dist_trainer.py:821}] <INFO> [  64/ 200] loss: (train=1.518, val=1.800, test=1.812, l2=17011.777), acc: (train=0.496, val=0.394, test=0.386), diff=0.00000002, proc(train=33.648sec, eval=49.421sec)
+[2022-11-04 17:01:35,244 {dist_trainer.py:770}] <INFO> [  65/ 200] connecting edge count: 2
+[2022-11-04 17:02:25,320 {dist_trainer.py:821}] <INFO> [  65/ 200] loss: (train=1.525, val=1.698, test=1.720, l2=17002.896), acc: (train=0.491, val=0.425, test=0.418), diff=0.00000002, proc(train=31.455sec, eval=48.648sec)
+[2022-11-04 17:02:58,398 {dist_trainer.py:770}] <INFO> [  66/ 200] connecting edge count: 2
+[2022-11-04 17:03:47,871 {dist_trainer.py:821}] <INFO> [  66/ 200] loss: (train=1.527, val=1.803, test=1.810, l2=16992.297), acc: (train=0.491, val=0.400, test=0.401), diff=0.00000003, proc(train=33.078sec, eval=47.983sec)
+[2022-11-04 17:04:21,061 {dist_trainer.py:770}] <INFO> [  67/ 200] connecting edge count: 2
+[2022-11-04 17:05:13,858 {dist_trainer.py:821}] <INFO> [  67/ 200] loss: (train=1.509, val=1.642, test=1.659, l2=16981.635), acc: (train=0.528, val=0.429, test=0.426), diff=0.00000003, proc(train=33.190sec, eval=51.207sec)
+[2022-11-04 17:05:47,981 {dist_trainer.py:770}] <INFO> [  68/ 200] connecting edge count: 2
+[2022-11-04 17:06:36,761 {dist_trainer.py:821}] <INFO> [  68/ 200] loss: (train=1.528, val=1.604, test=1.622, l2=16970.457), acc: (train=0.525, val=0.433, test=0.428), diff=0.00000002, proc(train=34.123sec, eval=47.278sec)
+[2022-11-04 17:07:10,545 {dist_trainer.py:770}] <INFO> [  69/ 200] connecting edge count: 2
+[2022-11-04 17:08:03,867 {dist_trainer.py:821}] <INFO> [  69/ 200] loss: (train=1.515, val=1.616, test=1.630, l2=16960.291), acc: (train=0.510, val=0.427, test=0.422), diff=0.00000003, proc(train=33.784sec, eval=51.710sec)
+[2022-11-04 17:08:35,368 {dist_trainer.py:770}] <INFO> [  70/ 200] connecting edge count: 2
+[2022-11-04 17:09:26,222 {dist_trainer.py:821}] <INFO> [  70/ 200] loss: (train=1.524, val=1.515, test=1.532, l2=16950.396), acc: (train=0.538, val=0.456, test=0.447), diff=0.00000002, proc(train=31.501sec, eval=49.369sec)
+[2022-11-04 17:10:00,336 {dist_trainer.py:770}] <INFO> [  71/ 200] connecting edge count: 2
+[2022-11-04 17:10:49,847 {dist_trainer.py:821}] <INFO> [  71/ 200] loss: (train=1.505, val=1.623, test=1.638, l2=16939.980), acc: (train=0.514, val=0.433, test=0.425), diff=0.00000003, proc(train=34.114sec, eval=47.990sec)
+[2022-11-04 17:11:22,764 {dist_trainer.py:770}] <INFO> [  72/ 200] connecting edge count: 2
+[2022-11-04 17:12:17,158 {dist_trainer.py:821}] <INFO> [  72/ 200] loss: (train=1.475, val=1.558, test=1.578, l2=16929.234), acc: (train=0.517, val=0.458, test=0.455), diff=0.00000002, proc(train=32.917sec, eval=52.665sec)
+[2022-11-04 17:12:47,276 {dist_trainer.py:770}] <INFO> [  73/ 200] connecting edge count: 2
+[2022-11-04 17:13:40,634 {dist_trainer.py:821}] <INFO> [  73/ 200] loss: (train=1.493, val=1.541, test=1.563, l2=16919.627), acc: (train=0.532, val=0.454, test=0.446), diff=0.00000002, proc(train=30.118sec, eval=51.778sec)
+[2022-11-04 17:14:12,108 {dist_trainer.py:770}] <INFO> [  74/ 200] connecting edge count: 2
+[2022-11-04 17:15:01,084 {dist_trainer.py:821}] <INFO> [  74/ 200] loss: (train=1.485, val=1.688, test=1.704, l2=16910.184), acc: (train=0.521, val=0.417, test=0.410), diff=0.00000003, proc(train=31.474sec, eval=47.755sec)
+[2022-11-04 17:15:35,637 {dist_trainer.py:770}] <INFO> [  75/ 200] connecting edge count: 2
+[2022-11-04 17:16:20,909 {dist_trainer.py:821}] <INFO> [  75/ 200] loss: (train=1.472, val=1.572, test=1.591, l2=16897.658), acc: (train=0.534, val=0.454, test=0.444), diff=0.00000003, proc(train=34.553sec, eval=44.044sec)
+[2022-11-04 17:16:53,195 {dist_trainer.py:770}] <INFO> [  76/ 200] connecting edge count: 2
+[2022-11-04 17:17:43,368 {dist_trainer.py:821}] <INFO> [  76/ 200] loss: (train=1.466, val=1.649, test=1.673, l2=16883.922), acc: (train=0.494, val=0.436, test=0.428), diff=0.00000002, proc(train=32.285sec, eval=48.436sec)
+[2022-11-04 17:18:13,973 {dist_trainer.py:770}] <INFO> [  77/ 200] connecting edge count: 2
+[2022-11-04 17:19:10,042 {dist_trainer.py:821}] <INFO> [  77/ 200] loss: (train=1.459, val=1.531, test=1.555, l2=16874.295), acc: (train=0.524, val=0.460, test=0.452), diff=0.00000002, proc(train=30.605sec, eval=54.365sec)
+[2022-11-04 17:19:42,414 {dist_trainer.py:770}] <INFO> [  78/ 200] connecting edge count: 2
+[2022-11-04 17:20:33,549 {dist_trainer.py:821}] <INFO> [  78/ 200] loss: (train=1.457, val=1.586, test=1.600, l2=16863.805), acc: (train=0.533, val=0.435, test=0.426), diff=0.00000003, proc(train=32.372sec, eval=49.920sec)
+[2022-11-04 17:21:04,910 {dist_trainer.py:770}] <INFO> [  79/ 200] connecting edge count: 2
+[2022-11-04 17:21:52,916 {dist_trainer.py:821}] <INFO> [  79/ 200] loss: (train=1.469, val=1.562, test=1.590, l2=16853.213), acc: (train=0.543, val=0.458, test=0.449), diff=0.00000003, proc(train=31.360sec, eval=46.847sec)
+[2022-11-04 17:22:23,453 {dist_trainer.py:770}] <INFO> [  80/ 200] connecting edge count: 2
+[2022-11-04 17:23:11,807 {dist_trainer.py:821}] <INFO> [  80/ 200] loss: (train=1.441, val=1.624, test=1.643, l2=16841.502), acc: (train=0.519, val=0.448, test=0.443), diff=0.00000003, proc(train=30.536sec, eval=47.087sec)
+[2022-11-04 17:23:45,024 {dist_trainer.py:770}] <INFO> [  81/ 200] connecting edge count: 2
+[2022-11-04 17:24:31,611 {dist_trainer.py:821}] <INFO> [  81/ 200] loss: (train=1.467, val=1.604, test=1.623, l2=16829.088), acc: (train=0.540, val=0.443, test=0.435), diff=0.00000003, proc(train=33.217sec, eval=45.313sec)
+[2022-11-04 17:25:04,782 {dist_trainer.py:770}] <INFO> [  82/ 200] connecting edge count: 2
+[2022-11-04 17:25:50,994 {dist_trainer.py:821}] <INFO> [  82/ 200] loss: (train=1.467, val=1.509, test=1.526, l2=16816.279), acc: (train=0.553, val=0.469, test=0.462), diff=0.00000002, proc(train=33.171sec, eval=44.966sec)
+[2022-11-04 17:26:24,366 {dist_trainer.py:770}] <INFO> [  83/ 200] connecting edge count: 2
+[2022-11-04 17:27:11,753 {dist_trainer.py:821}] <INFO> [  83/ 200] loss: (train=1.457, val=1.574, test=1.591, l2=16803.633), acc: (train=0.527, val=0.454, test=0.447), diff=0.00000002, proc(train=33.372sec, eval=46.245sec)
+[2022-11-04 17:27:45,482 {dist_trainer.py:770}] <INFO> [  84/ 200] connecting edge count: 2
+[2022-11-04 17:28:31,466 {dist_trainer.py:821}] <INFO> [  84/ 200] loss: (train=1.453, val=1.647, test=1.671, l2=16790.889), acc: (train=0.552, val=0.444, test=0.436), diff=0.00000003, proc(train=33.728sec, eval=44.681sec)
+[2022-11-04 17:29:05,610 {dist_trainer.py:770}] <INFO> [  85/ 200] connecting edge count: 2
+[2022-11-04 17:29:51,988 {dist_trainer.py:821}] <INFO> [  85/ 200] loss: (train=1.447, val=1.582, test=1.603, l2=16777.420), acc: (train=0.545, val=0.448, test=0.436), diff=0.00000003, proc(train=34.143sec, eval=44.751sec)
+[2022-11-04 17:30:23,266 {dist_trainer.py:770}] <INFO> [  86/ 200] connecting edge count: 2
+[2022-11-04 17:31:15,116 {dist_trainer.py:821}] <INFO> [  86/ 200] loss: (train=1.427, val=1.527, test=1.550, l2=16764.748), acc: (train=0.554, val=0.474, test=0.469), diff=0.00000003, proc(train=31.277sec, eval=50.084sec)
+[2022-11-04 17:31:46,496 {dist_trainer.py:770}] <INFO> [  87/ 200] connecting edge count: 2
+[2022-11-04 17:32:40,299 {dist_trainer.py:821}] <INFO> [  87/ 200] loss: (train=1.435, val=1.511, test=1.536, l2=16755.406), acc: (train=0.543, val=0.472, test=0.463), diff=0.00000002, proc(train=31.380sec, eval=52.249sec)
+[2022-11-04 17:33:11,867 {dist_trainer.py:770}] <INFO> [  88/ 200] connecting edge count: 2
+[2022-11-04 17:34:02,211 {dist_trainer.py:821}] <INFO> [  88/ 200] loss: (train=1.409, val=1.468, test=1.492, l2=16745.395), acc: (train=0.552, val=0.476, test=0.466), diff=0.00000002, proc(train=31.568sec, eval=39.672sec)
+[2022-11-04 17:34:02,619 {contract.py:84}] <INFO>  => node2 : edge disconnect.
+[2022-11-04 17:34:21,741 {dist_trainer.py:770}] <INFO> [  89/ 200] connecting edge count: 1
+[2022-11-04 17:35:02,345 {dist_trainer.py:821}] <INFO> [  89/ 200] loss: (train=1.438, val=1.471, test=1.500, l2=16743.850), acc: (train=0.534, val=0.485, test=0.477), diff=0.00000001, proc(train=19.529sec, eval=30.577sec)
+[2022-11-04 17:35:02,345 {dist_trainer.py:836}] <INFO> [  89/ 200] found edge disconnection: 2 -> 1. finished train.
+[2022-11-04 17:35:36,372 {dist_trainer.py:899}] <INFO> [EVAL] loss: (train=1.320, val=1.471, test=1.500, l2=16743.850), acc: (train=0.531, val=0.485, test=0.477), proc=34.026sec
+[2022-11-04 17:35:36,475 {dist_trainer.py:380}] <INFO> GC: check garbage []
+[2022-11-04 17:35:36,776 {main.py:285}] <INFO> GC: check garbage []
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
