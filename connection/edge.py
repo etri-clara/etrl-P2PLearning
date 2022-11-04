@@ -37,6 +37,7 @@ class EdgeBase(metaclass=ABCMeta):
             self._prm_state["rcv"].append(copy.deepcopy(p))
             self._prm_dual["snd"].append(torch.zeros(p.size(), device=self._device))
             self._prm_dual["rcv"].append(torch.zeros(p.size(), device=self._device))
+ 
             if self._is_prm["avg"]:
                 self._dual_avg.append(copy.deepcopy(p))
             if self._is_prm["c_prm"]:
@@ -103,6 +104,10 @@ class EdgeBase(metaclass=ABCMeta):
     @dual_avg.setter
     def dual_avg(self, val):
         self._dual_avg = val
+
+    @property
+    def rcv_buf(self):
+        return self._rcv_buf
 
     @property
     def c_prm(self):
