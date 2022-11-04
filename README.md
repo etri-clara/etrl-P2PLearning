@@ -201,21 +201,19 @@ epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     t
 ```python
 (Node-1) 
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
-1,            
+1,            2.745,       2.821,        2.823,        0.164,       0.100,        0.100
 ...
-199,                 
+200,          2.077,       2.005,        2.005,        0.337,       0.272,      [ 0.271 ]             
 (Node-2)
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
-1,            
+1,            2.818,       2.827,        2.827,        0.146,       0.100,        0.100 
 ...
-200,             
+200,          1.997,       2.054,        2.057,        0.338,       0.275,      [ 0.275 ]  
 (Node-3)
 epoch,   train_loss,    val_loss,    test_loss,    train_acc,     val_acc,     test_acc
-1,            
+1,            2.788,       2.734,        2.735,        0.136,       0.100,        0.100
 ...
-84,           
-...
-200
+200           2.017,       2.133,        2.142,        0.348,       0.259,      [ 0.259 ]
 ```
 
 ### P2P(Peer-to-Peer) Training (with ADMM SGD) - TBD
