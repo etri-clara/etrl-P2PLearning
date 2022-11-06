@@ -16,11 +16,6 @@ class PdmmSGD(Contract):
         lr = 1 / mu
         eta_rate = eta / mu
         
-        if drs:
-            is_avg = True
-        else:
-            is_avg = False
-            
         self._is_state = True
         if rho == 0:
             self._is_state = False

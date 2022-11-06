@@ -16,18 +16,13 @@ class AdmmSGD(Contract):
         lr = 1 / mu
         eta_rate = eta / mu
         
-        if drs:
-            is_avg = True
-        else:
-            is_avg = False
-
         self._is_state = True
         if rho == 0:
             self._is_state = False
         
         defaults = dict(lr=lr, mu=mu, eta=eta, rho=rho, initial_lr=lr, eta_rate=eta_rate)
         super(AdmmSGD, self).__init__(name, round_cnt, edges, hosts, model, defaults, device, round_step, weight,
-                                  is_avg = is_avg, swap_timeout=swap_timeout)
+                                  is_avg = True, swap_timeout=swap_timeout)
 
 
         m_state = model.state_dict()
@@ -92,6 +87,12 @@ class AdmmSGD(Contract):
                     # pdmm
                     # consensus += vs_metric_eta / edge_num * edge.prm_a() * edge.rcv_dual()[i]
                     # -> consensus += vs_metric_eta / edge_num * edge.prm_a * edge.prm_dual["rcv"][i] 
+                    
+    
+                     
+                    #self._dual_avg[index] = torch.div((self._dual_avg[index] + self._prm_dual["rcv"][index]), 2)
+                    edge.dual_avg[i] = torch.div((edge.dual_avg[i] + edge.prm_dual["rcv"][i]), 2)
+        
                     consensus += vs_metric_eta / edge_num * edge.prm_a * edge.dual_avg[i]
                     
                     if self._is_state:
@@ -108,7 +109,7 @@ class AdmmSGD(Contract):
                         2 * edge.prm_a * p.data
                 
 
-        self.swap_params("state")
+        self.swap_params("dual")
         self.round_update()
 
         if closure is not None:

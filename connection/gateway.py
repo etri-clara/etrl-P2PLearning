@@ -82,6 +82,7 @@ class Gateway(Optimizer):
         for edge_name, swap_cnt in edges.items():
             if edge_name not in self._edge.keys():
                 self._edge[edge_name] = Edge(nodes[edge_name], model.parameters(), swap_cnt, device, is_prm)
+                logging.info(edge_name, is_prm)
 
         self._server_th = ServerHandler(name, self._edge, nodes, model, is_prm, self._info,
                                         device, swap_timeout=swap_timeout)
