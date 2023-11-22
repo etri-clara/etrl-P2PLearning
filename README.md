@@ -1,5 +1,4 @@
 # 협업학습기술 관련연구 
-### 수행기관: 한국전자통신연구원
 
 ## Summary
 In the distributed setting, we study weight update algorithms(like DSGD, ADMM, and Collaborative Learning). This code leads a brief overview of ways in which we can solve this problem. 
